@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "text": "Đối với ngành F&B, khung giờ vàng thường là từ 18:00 đến 20:00. Hãy chú trọng phân tích xem có đúng như vậy không.",
+        "tags": [
+            "time_analysis",
+            "peak_hours"
+        ]
+    },
+    {
+        "id": 2,
+        "text": "Sản phẩm có doanh thu cao nhưng số lượng bán ít có thể là sản phẩm cao cấp. Đề xuất các combo bán kèm để tăng doanh số.",
+        "tags": [
+            "product_analysis",
+            "strategy"
+        ]
+    },
+    {
+        "id": 3,
+        "text": "Nếu giá trị đơn hàng trung bình thấp, hãy gợi ý các chiến lược up-selling hoặc cross-selling.",
+        "tags": [
+            "revenue_analysis",
+            "strategy"
+        ]
+    }
+]
