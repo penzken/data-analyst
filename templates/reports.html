@@ -31,7 +31,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <!-- Weekday Sales Chart -->
                     <div class="chart-container p-6">
-                        <h2 class="text-lg font-bold text-gray-800 mb-4">Doanh thu theo Tuần</h2>
+                        <h2 class="text-lg font-bold text-gray-800 mb-4">Doanh thu theo ngày trong tuần</h2>
                         <div id="weekday-chart" class="w-full h-80"></div>
                     </div>
 
@@ -80,9 +80,17 @@
         };
 
         function drawWeekdayChart(weekdayData) {
+            // Define the correct order for sorting
+            const dayOrder = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ Nhật'];
+
+            // Convert the data object to an array and sort it according to the defined order
+            const sortedData = Object.entries(weekdayData).sort((a, b) => {
+                return dayOrder.indexOf(a[0]) - dayOrder.indexOf(b[0]);
+            });
+
             const data = google.visualization.arrayToDataTable([
                 ['Thứ', 'Doanh thu'],
-                ...Object.entries(weekdayData)
+                ...sortedData // Use the newly sorted data
             ]);
             const chart = new google.visualization.ColumnChart(document.getElementById('weekday-chart'));
             chart.draw(data, {...chartOptions, colors: ['#3b82f6']});
