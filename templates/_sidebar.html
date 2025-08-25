@@ -1,0 +1,25 @@
+<!-- This entire block is the complete, two-part navigation component -->
+<div class="hidden md:flex">
+    <!-- Part 1: Narrow Icon Bar -->
+    <div class="flex flex-col w-16 bg-white border-r border-gray-200 items-center py-6 space-y-6">
+        <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+            <i class="fas fa-rocket text-white text-sm"></i>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center cursor-pointer group">
+                <i class="fas fa-home text-blue-500 text-lg group-hover:text-blue-600"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Part 2: Main Sidebar -->
+    <div id="sidebar" class="sidebar w-64 bg-white shadow-lg z-30 h-full">
+        <div class="p-6 border-b border-gray-200"><h1 class="text-xl font-bold text-gray-800">Dashboards</h1></div>
+        <nav class="mt-6">
+            <!-- NOTE: Placeholders like {{ sales_active }} have been added to the class attributes -->
+            <div class="sidebar-item"><a href="/" class="flex items-center space-x-3 px-4 py-3 text-gray-600 {{ sales_active }}"><i class="fas fa-cart-shopping text-lg"></i><span class="font-medium">Sales</span></a></div>
+            <div class="sidebar-item"><a href="/products" class="flex items-center space-x-3 px-4 py-3 text-gray-600 {{ products_active }}"><i class="fas fa-box text-lg"></i><span class="font-medium">Products</span></a></div>
+            <div class="sidebar-item"><a href="/reports" class="flex items-center space-x-3 px-4 py-3 text-gray-600 {{ reports_active }}"><i class="fas fa-chart-line text-lg"></i><span class="font-medium">Reports</span></a></div>
+        </nav>
+    </div>
+</div>

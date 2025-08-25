@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uni Pro Admin - Detailed Reports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .sidebar-item { transition: all 0.3s ease; }
+        .sidebar-item:hover { background-color: #f9fafb; color: #3b82f6; }
+        .sidebar-item a.active { color: #3b82f6; background-color: #eff6ff; border-left: 3px solid #3b82f6; padding-left: calc(1rem - 3px); }
+        .sidebar-item a.active .font-medium { font-weight: 600; }
+        .chart-container { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="flex h-[100dvh] overflow-hidden">
+        <!-- Sidebar -->
+        {{ sidebar|safe }}
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+                <h1 class="text-2xl font-semibold text-gray-800">Detailed Reports</h1>
+            </header>
+
+            <main class="flex-1 overflow-y-auto p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Weekday Sales Chart -->
+                    <div class="chart-container p-6">
+                        <h2 class="text-lg font-bold text-gray-800 mb-4">Doanh thu theo Tuần</h2>
+                        <div id="weekday-chart" class="w-full h-80"></div>
+                    </div>
+
+                    <!-- Invoice Distribution Chart -->
+                    <div class="chart-container p-6">
+                        <h2 class="text-lg font-bold text-gray-800 mb-4">Invoice Value Distribution</h2>
+                        <div id="distribution-chart" class="w-full h-80"></div>
+                    </div>
+
+                    <!-- Monthly Sales Chart -->
+                    <div class="lg:col-span-2 chart-container p-6">
+                        <h2 class="text-lg font-bold text-gray-800 mb-4">Doanh thu theo Tháng</h2>
+                        <div id="monthly-chart" class="w-full h-80"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            fetch('/api/reports-analysis')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
+                    }
+                    drawWeekdayChart(data.weekday_sales);
+                    drawDistributionChart(data.invoice_distribution);
+                    drawMonthlyChart(data.monthly_sales);
+                })
+                .catch(error => console.error('Error fetching report data:', error));
+        }
+
+        const chartOptions = {
+            colors: ['#3b82f6'],
+            backgroundColor: 'transparent',
+            legend: 'none',
+            bar: { groupWidth: '60%' },
+            hAxis: { textStyle: { color: '#6b7280', fontSize: 12 } },
+            vAxis: { textStyle: { color: '#6b7280', fontSize: 12 }, gridlines: { color: '#f3f4f6' } },
+            chartArea: { left: 60, top: 20, width: '85%', height: '75%' }
+        };
+
+        function drawWeekdayChart(weekdayData) {
+            const normalize = (s) => String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '');
+            const weekdayIndex = (name) => {
+                const n = normalize(name);
+                if (n.startsWith('thuhai') || n === 'hai' || n === 'thu2' || n === 't2') return 0; // Mon
+                if (n.startsWith('thuba')  || n === 'ba'  || n === 'thu3' || n === 't3') return 1; // Tue
+                if (n.startsWith('thutu')  || n === 'tu'  || n === 'thu4' || n === 't4') return 2; // Wed
+                if (n.startsWith('thunam') || n === 'nam' || n === 'thu5' || n === 't5') return 3; // Thu
+                if (n.startsWith('thusau') || n === 'sau' || n === 'thu6' || n === 't6') return 4; // Fri
+                if (n.startsWith('thubay') || n === 'bay' || n === 'thu7' || n === 't7') return 5; // Sat
+                if (n.startsWith('chunhat')|| n === 'cn'  || n === 'chunhat') return 6; // Sun
+                if (n.startsWith('mon')) return 0;
+                if (n.startsWith('tue')) return 1;
+                if (n.startsWith('wed')) return 2;
+                if (n.startsWith('thu')) return 3;
+                if (n.startsWith('fri')) return 4;
+                if (n.startsWith('sat')) return 5;
+                if (n.startsWith('sun')) return 6;
+                return 7;
+            };
+            const sorted = Object.entries(weekdayData).sort((a, b) => weekdayIndex(a[0]) - weekdayIndex(b[0]));
+            const data = google.visualization.arrayToDataTable([
+                ['Thứ', 'Doanh thu'],
+                ...sorted
+            ]);
+            const chart = new google.visualization.ColumnChart(document.getElementById('weekday-chart'));
+            chart.draw(data, chartOptions);
+        }
+
+        function drawDistributionChart(distributionData) {
+            const data = google.visualization.arrayToDataTable([
+                ['Nhóm', 'Số lượng'],
+                ...Object.entries(distributionData)
+            ]);
+            const options = { ...chartOptions, colors: ['#818cf8', '#6366f1', '#4f46e5'] };
+            const chart = new google.visualization.PieChart(document.getElementById('distribution-chart'));
+            chart.draw(data, options);
+        }
+
+        function drawMonthlyChart(monthlyData) {
+            const data = google.visualization.arrayToDataTable([
+                ['Tháng', 'Doanh thu'],
+                ...Object.entries(monthlyData)
+            ]);
+            const chart = new google.visualization.ColumnChart(document.getElementById('monthly-chart'));
+            chart.draw(data, chartOptions);
+        }
+        
+        window.addEventListener('resize', drawCharts);
+    </script>
+</body>
+</html>

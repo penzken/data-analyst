@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static\dashboard\dashboard.css">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <style>
+        /* Ensure all text in date picker is black for visibility */
+        .daterangepicker {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .ranges li {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .ranges li:hover {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .ranges li.active {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table th {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table td {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table td.available {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table td.available:hover {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table td.active {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table td.in-range {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table td.off {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-buttons {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-buttons .btn {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-selected {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table .next span,
+        .daterangepicker .drp-calendar .calendar-table .prev span {
+            border-color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table .next,
+        .daterangepicker .drp-calendar .calendar-table .prev {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table .next:hover,
+        .daterangepicker .drp-calendar .calendar-table .prev:hover {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table .calendar-table .next span,
+        .daterangepicker .drp-calendar .calendar-table .calendar-table .prev span {
+            border-color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table .calendar-table .next,
+        .daterangepicker .drp-calendar .calendar-table .calendar-table .prev {
+            color: #000000 !important;
+        }
+        
+        .daterangepicker .drp-calendar .calendar-table .calendar-table .next:hover,
+        .daterangepicker .drp-calendar .calendar-table .calendar-table .prev:hover {
+            color: #000000 !important;
+        }
+        
+        /* Active navigation styling */
+        .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            color: #ffffff !important;
+            transform: translateX(4px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link.active:hover {
+            background-color: rgba(255, 255, 255, 0.25) !important;
+        }
+        
+        .nav-link:not(.active) {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:not(.active):hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            transform: translateX(2px);
+        }
+        
+        /* Report option selection styling */
+        .report-option {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .report-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+        
+        .report-option > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .report-option.selected {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+            border-color: #a855f7;
+        }
+        
+        .report-option.selected::before {
+            opacity: 1;
+        }
+        
+        .report-option:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .report-option.selected:hover {
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Chart container styling to prevent resizing */
+        #chart-container {
+            min-height: 500px;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        #yesterday-chart,
+        #today-chart,
+        #comparison-chart {
+            width: 100% !important;
+            height: 400px !important;
+            min-height: 400px;
+        }
+        
+        /* Ensure consistent spacing */
+        .page-content {
+            min-height: calc(100vh - 200px);
+        }
+        
+        /* Sidebar fixed positioning and scrolling */
+        .sidebar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            height: 100vh !important;
+            overflow-y: auto !important;
+            z-index: 1000 !important;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        }
+        
+        /* Custom scrollbar for sidebar */
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Main content adjustment for fixed sidebar */
+        .ml-80 {
+            margin-left: 20rem; /* 320px - matches sidebar width */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar bg-gradient-to-b from-indigo-600 to-purple-700 w-80 flex flex-col fixed h-screen overflow-y-auto z-50">
+            <!-- Logo -->
+            <div class="p-6">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                        <i class="fas fa-wave-square text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="flex-1 px-4">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="nav-link active flex items-center px-4 py-3 rounded-lg text-white" onclick="showPage('dashboard')">
+                            <i class="fas fa-home mr-4 text-lg"></i>
+                            <span class="font-medium">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link flex items-center px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10" onclick="showPage('team')">
+                            <i class="fas fa-users mr-4 text-lg"></i>
+                            <span class="font-medium">Báo cáo ngày</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link flex items-center px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10" onclick="showPage('projects')">
+                            <i class="fas fa-folder mr-4 text-lg"></i>
+                            <span class="font-medium">Báo cáo tuần</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link flex items-center px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10" onclick="showPage('calendar')">
+                            <i class="fas fa-calendar mr-4 text-lg"></i>
+                            <span class="font-medium">Báo cáo tháng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link flex items-center px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10" onclick="showPage('documents')">
+                            <i class="fas fa-file-alt mr-4 text-lg"></i>
+                            <span class="font-medium">Báo cáo quý</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link flex items-center px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10" onclick="showPage('reports')">
+                            <i class="fas fa-chart-bar mr-4 text-lg"></i>
+                            <span class="font-medium">Báo cáo năm</span>
+                            </a>
+                        </li>
+                    </ul>
+            </nav>
+            
+            <!-- Settings -->
+            <div class="p-4">
+                <a href="#" class="nav-link flex items-center px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10" onclick="showPage('settings')">
+                    <i class="fas fa-cog mr-4 text-lg"></i>
+                    <span class="font-medium">Settings</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col ml-80">
+            <!-- Header -->
+            <header class="bg-slate-800 border-b border-slate-700 px-6 py-4">
+                <div class="flex items-center justify-end">
+                    <!-- User Profile -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-slate-400 hover:text-white">
+                            <i class="fas fa-bell text-xl"></i>
+                        </button>
+                        <div class="flex items-center space-x-3">
+                            <img 
+                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" 
+                                alt="User Avatar" 
+                                class="w-10 h-10 rounded-full"
+                            >
+                            <div class="flex items-center">
+                                <span class="font-medium">Tom Cook</span>
+                                <i class="fas fa-chevron-down ml-2 text-slate-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Main Content Area -->
+            <main class="flex-1 p-6 bg-slate-900">
+                <!-- Dashboard Page -->
+                <div id="dashboard-page" class="page-content">
+                <div class="diagonal-pattern h-full rounded-lg flex items-center justify-center">
+                    <div class="text-center">
+                        <h1 class="text-4xl font-bold text-white/20 mb-4">Welcome to Dashboard</h1>
+                            <p class="text-white/10">Your main dashboard content goes here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Page - Báo cáo ngày -->
+                <div id="team-page" class="page-content hidden">
+                    <div class="p-6">
+                        <h1 class="text-3xl font-bold text-white mb-6">Báo cáo ngày</h1>
+                        <div class="grid grid-cols-3 gap-4 w-full">
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('yesterday')">
+                                <input type="radio" id="yesterday" name="daily-report" class="hidden">
+                                <label for="yesterday" class="text-white text-lg font-medium cursor-pointer block text-center">Hôm qua</label>
+                            </div>
+                            <div class="report-option selected bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('today')">
+                                <input type="radio" id="today" name="daily-report" class="hidden" checked>
+                                <label for="today" class="text-white text-lg font-medium cursor-pointer block text-center">Hôm nay</label>
+                            </div>
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('today-vs-yesterday')">
+                                <input type="radio" id="today-vs-yesterday" name="daily-report" class="hidden">
+                                <label for="today-vs-yesterday" class="text-white text-lg font-medium cursor-pointer block text-center">Hôm nay so với hôm qua</label>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <div id="chart-container" class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+                                <div id="chart-placeholder" class="text-center text-slate-400 py-12">
+                                    <i class="fas fa-chart-bar text-4xl mb-4"></i>
+                                    <p class="text-lg">Chọn một tùy chọn để xem biểu đồ</p>
+                                </div>
+                                <div id="yesterday-chart" class="hidden" style="width: 100%; height: 400px;"></div>
+                                <div id="today-chart" class="hidden" style="width: 100%; height: 400px;"></div>
+                                <div id="comparison-chart" class="hidden" style="width: 100%; height: 400px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Page - Báo cáo tuần -->
+                <div id="projects-page" class="page-content hidden">
+                    <div class="p-6">
+                        <h1 class="text-3xl font-bold text-white mb-6">Báo cáo tuần</h1>
+                        <div class="grid grid-cols-3 gap-4 w-full">
+                            <div class="report-option selected bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('this-week')">
+                                <input type="radio" id="this-week" name="weekly-report" class="hidden" checked>
+                                <label for="this-week" class="text-white text-lg font-medium cursor-pointer block text-center">Tuần này</label>
+                            </div>
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('last-week')">
+                                <input type="radio" id="last-week" name="weekly-report" class="hidden">
+                                <label for="last-week" class="text-white text-lg font-medium cursor-pointer block text-center">Tuần trước</label>
+                            </div>
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('this-week-vs-last-week')">
+                                <input type="radio" id="this-week-vs-last-week" name="weekly-report" class="hidden">
+                                <label for="this-week-vs-last-week" class="text-white text-lg font-medium cursor-pointer block text-center">Tuần này so với tuần trước</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar Page - Báo cáo tháng -->
+                <div id="calendar-page" class="page-content hidden">
+                    <div class="p-6">
+                        <h1 class="text-3xl font-bold text-white mb-6">Báo cáo tháng</h1>
+                        <div class="grid grid-cols-3 gap-4 w-full">
+                            <div class="report-option selected bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('this-month')">
+                                <input type="radio" id="this-month" name="monthly-report" class="hidden" checked>
+                                <label for="this-month" class="text-white text-lg font-medium cursor-pointer block text-center">Tháng này</label>
+                            </div>
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('last-month')">
+                                <input type="radio" id="last-month" name="monthly-report" class="hidden">
+                                <label for="last-month" class="text-white text-lg font-medium cursor-pointer block text-center">Tháng trước</label>
+                            </div>
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('this-month-vs-last-month')">
+                                <input type="radio" id="this-month-vs-last-month" name="monthly-report" class="hidden">
+                                <label for="this-month-vs-last-month" class="text-white text-lg font-medium cursor-pointer block text-center">Tháng này so với tháng trước</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Page - Báo cáo quý -->
+                <div id="documents-page" class="page-content hidden">
+                    <div class="p-6">
+                        <h1 class="text-3xl font-bold text-white mb-6">Báo cáo quý</h1>
+                        <div class="grid grid-cols-3 gap-4 w-full">
+                            <div class="report-option selected bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('this-quarter')">
+                                <input type="radio" id="this-quarter" name="quarterly-report" class="hidden" checked>
+                                <label for="this-quarter" class="text-white text-lg font-medium cursor-pointer block text-center">Quý này</label>
+                            </div>
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('last-quarter')">
+                                <input type="radio" id="last-quarter" name="quarterly-report" class="hidden">
+                                <label for="last-quarter" class="text-white text-lg font-medium cursor-pointer block text-center">Quý trước</label>
+                            </div>
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('this-quarter-vs-last-quarter')">
+                                <input type="radio" id="this-quarter-vs-last-quarter" name="quarterly-report" class="hidden">
+                                <label for="this-quarter-vs-last-quarter" class="text-white text-lg font-medium cursor-pointer block text-center">Quý này so với quý trước</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reports Page - Báo cáo năm -->
+                <div id="reports-page" class="page-content hidden">
+                    <div class="p-6">
+                        <h1 class="text-3xl font-bold text-white mb-6">Báo cáo năm</h1>
+                        <div class="grid grid-cols-3 gap-4 w-full">
+                            <div class="report-option selected bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('this-year')">
+                                <input type="radio" id="this-year" name="annual-report" class="hidden" checked>
+                                <label for="this-year" class="text-white text-lg font-medium cursor-pointer block text-center">Năm này</label>
+                            </div>
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('last-year')">
+                                <input type="radio" id="last-year" name="annual-report" class="hidden">
+                                <label for="last-year" class="text-white text-lg font-medium cursor-pointer block text-center">Năm trước</label>
+                            </div>
+                            <div class="report-option bg-slate-800 rounded-lg p-6 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors duration-200" onclick="selectOption('this-year-vs-last-year')">
+                                <input type="radio" id="this-year-vs-last-year" name="annual-report" class="hidden">
+                                <label for="this-year-vs-last-year" class="text-white text-lg font-medium cursor-pointer block text-center">Năm này so với năm trước</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div id="settings-page" class="page-content hidden">
+                    <div class="diagonal-pattern h-full rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <h1 class="text-4xl font-bold text-white/20 mb-4">Settings</h1>
+                            <p class="text-white/10">Application configuration and preferences</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- jQuery and Moment.js (required for daterangepicker) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <!-- Google Charts API -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId + '-page').classList.remove('hidden');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                link.classList.add('text-gray-300');
+            });
+            
+            event.target.classList.add('active');
+            event.target.classList.remove('text-gray-300');
+        }
+
+        // Initialize Date Range Picker
+        $(function() {
+            $('#dateRangePicker').daterangepicker({
+                ranges: {
+                    'Hôm nay so với hôm qua': [moment().subtract(1, 'days'), moment()],
+                    'Tuần này so với tuần trước': [moment().subtract(1, 'week').startOf('week'), moment().endOf('week')],
+                    'Tháng này so với tháng trước': [moment().subtract(1, 'month').startOf('month'), moment().endOf('month')],
+                    'Quý này so với quý trước': [moment().subtract(1, 'quarter').startOf('quarter'), moment().endOf('quarter')],
+                    'Năm này so với năm trước': [moment().subtract(1, 'year').startOf('year'), moment().endOf('year')]
+                },
+                locale: {
+                    format: 'DD/MM/YYYY',
+                    separator: ' - ',
+                    applyLabel: 'Áp dụng',
+                    cancelLabel: 'Hủy',
+                    fromLabel: 'Từ',
+                    toLabel: 'Đến',
+                    customRangeLabel: 'Tùy chỉnh',
+                    daysOfWeek: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+                    monthNames: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                    firstDay: 1
+                },
+                startDate: moment().startOf('month'),
+                endDate: moment().endOf('month'),
+                opens: 'left'
+            });
+
+            // Handle date range selection
+            $('#dateRangePicker').on('apply.daterangepicker', function(ev, picker) {
+                var startDate = picker.startDate.format('DD/MM/YYYY');
+                var endDate = picker.endDate.format('DD/MM/YYYY');
+                var label = picker.chosenLabel;
+                
+                console.log('Selected range:', label);
+                console.log('Start date:', startDate);
+                console.log('End date:', endDate);
+                
+                // Handle comparison logic based on selected label
+                if (label.includes('so với')) {
+                    // Perform comparison logic
+                    console.log('Comparison mode selected');
+                } else {
+                    // Handle single period selection
+                    console.log('Single period selected');
+                }
+                
+                // You can add your data fetching logic here
+                // fetchDataForDateRange(startDate, endDate, label);
+            });
+        });
+
+        // Function to handle report option selection
+        function selectOption(optionId) {
+            // Remove selected class from all options
+            document.querySelectorAll('.report-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            const selectedOption = document.querySelector(`[onclick="selectOption('${optionId}')"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+            }
+            
+            // Update the radio button
+            document.getElementById(optionId).checked = true;
+            
+            // Show appropriate chart based on selection
+            showChart(optionId);
+            
+            console.log('Selected option:', optionId);
+        }
+
+        // Function to show appropriate chart
+        function showChart(optionId) {
+            // Hide all charts and show placeholder
+            document.getElementById('chart-placeholder').classList.add('hidden');
+            document.getElementById('yesterday-chart').classList.add('hidden');
+            document.getElementById('today-chart').classList.add('hidden');
+            document.getElementById('comparison-chart').classList.add('hidden');
+            
+            // Show selected chart
+            if (optionId === 'yesterday') {
+                document.getElementById('yesterday-chart').classList.remove('hidden');
+                drawYesterdayChart();
+            } else if (optionId === 'today') {
+                document.getElementById('today-chart').classList.remove('hidden');
+                drawTodayChart();
+            } else if (optionId === 'today-vs-yesterday') {
+                document.getElementById('comparison-chart').classList.remove('hidden');
+                drawComparisonChart();
+            }
+        }
+
+        // Initialize Google Charts
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(function() {
+            console.log('Google Charts loaded successfully');
+            // Show default chart for daily report
+            showDefaultChart();
+            
+            // Add window resize listener for responsive charts
+            window.addEventListener('resize', debounce(function() {
+                redrawActiveChart();
+            }, 250));
+        });
+
+        // Debounce function to prevent excessive redrawing
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Function to redraw the currently active chart
+        function redrawActiveChart() {
+            const yesterdayChart = document.getElementById('yesterday-chart');
+            const todayChart = document.getElementById('today-chart');
+            const comparisonChart = document.getElementById('comparison-chart');
+            
+            if (!yesterdayChart.classList.contains('hidden')) {
+                drawYesterdayChart();
+            } else if (!todayChart.classList.contains('hidden')) {
+                drawTodayChart();
+            } else if (!comparisonChart.classList.contains('hidden')) {
+                drawComparisonChart();
+            }
+        }
+
+        // Function to show default chart when page loads
+        function showDefaultChart() {
+            // Check if we're on the daily report page and show default chart
+            const dailyReportPage = document.getElementById('team-page');
+            if (dailyReportPage && !dailyReportPage.classList.contains('hidden')) {
+                // Show today chart by default
+                showChart('today');
+            }
+        }
+
+        // Draw Yesterday Chart
+        function drawYesterdayChart() {
+            const data = google.visualization.arrayToDataTable([
+                ['Category', 'Sales (VND)'],
+                ['Đồ uống', 2500000],
+                ['Món chính', 4500000],
+                ['Món phụ', 1200000],
+                ['Tráng miệng', 800000],
+                ['Đồ ăn nhanh', 1800000]
+            ]);
+
+            const options = {
+                title: 'Doanh số hôm qua theo danh mục',
+                titleTextStyle: {color: '#ffffff', fontSize: 18},
+                backgroundColor: '#1e293b',
+                colors: ['#8b5cf6', '#a855f7', '#c084fc', '#ddd6fe', '#e9d5ff'],
+                legend: {textStyle: {color: '#ffffff'}},
+                hAxis: {textStyle: {color: '#ffffff'}},
+                vAxis: {textStyle: {color: '#ffffff'}},
+                chartArea: {backgroundColor: '#1e293b'},
+                width: '100%',
+                height: 400,
+                chartArea: {
+                    backgroundColor: '#1e293b',
+                    width: '85%',
+                    height: '70%',
+                    left: '10%',
+                    top: '15%'
+                }
+            };
+
+            const chart = new google.visualization.ColumnChart(document.getElementById('yesterday-chart'));
+            chart.draw(data, options);
+        }
+
+        // Draw Today Chart
+        function drawTodayChart() {
+            const data = google.visualization.arrayToDataTable([
+                ['Hour', 'Sales (VND)'],
+                ['6-9h', 800000],
+                ['9-12h', 1200000],
+                ['12-15h', 2800000],
+                ['15-18h', 1500000],
+                ['18-21h', 3200000],
+                ['21-24h', 1800000]
+            ]);
+
+            const options = {
+                title: 'Doanh số hôm nay theo giờ',
+                titleTextStyle: {color: '#ffffff', fontSize: 18},
+                backgroundColor: '#1e293b',
+                colors: ['#10b981'],
+                legend: {textStyle: {color: '#ffffff'}},
+                hAxis: {textStyle: {color: '#ffffff'}},
+                vAxis: {textStyle: {color: '#ffffff'}},
+                chartArea: {backgroundColor: '#1e293b'},
+                width: '100%',
+                height: 400,
+                chartArea: {
+                    backgroundColor: '#1e293b',
+                    width: '85%',
+                    height: '70%',
+                    left: '10%',
+                    top: '15%'
+                }
+            };
+
+            const chart = new google.visualization.LineChart(document.getElementById('today-chart'));
+            chart.draw(data, options);
+        }
+
+        // Draw Comparison Chart
+        function drawComparisonChart() {
+            const data = google.visualization.arrayToDataTable([
+                ['Category', 'Hôm qua', 'Hôm nay'],
+                ['Đồ uống', 2500000, 2800000],
+                ['Món chính', 4500000, 5200000],
+                ['Món phụ', 1200000, 1350000],
+                ['Tráng miệng', 800000, 950000],
+                ['Đồ ăn nhanh', 1800000, 2100000]
+            ]);
+
+            const options = {
+                title: 'So sánh doanh số hôm qua vs hôm nay',
+                titleTextStyle: {color: '#ffffff', fontSize: 18},
+                backgroundColor: '#1e293b',
+                colors: ['#8b5cf6', '#10b981'],
+                legend: {textStyle: {color: '#ffffff'}},
+                hAxis: {textStyle: {color: '#ffffff'}},
+                vAxis: {textStyle: {color: '#ffffff'}},
+                chartArea: {backgroundColor: '#1e293b'},
+                width: '100%',
+                height: 400,
+                chartArea: {
+                    backgroundColor: '#1e293b',
+                    width: '85%',
+                    height: '70%',
+                    left: '10%',
+                    top: '15%'
+                }
+            };
+
+            const chart = new google.visualization.ColumnChart(document.getElementById('comparison-chart'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script src="static\dashboard\dashboard.js"></script>
+</body>
+</html>
