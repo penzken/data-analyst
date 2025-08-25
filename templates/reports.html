@@ -18,7 +18,6 @@
 </head>
 <body class="bg-gray-50 font-sans">
     <div class="flex h-[100dvh] overflow-hidden">
-        
         {{ sidebar|safe }}
 
         <!-- Main Content -->
@@ -52,22 +51,22 @@
     </div>
 
     <script>
-        google.charts.load('current', {'packages':['corechart']});
+        google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawCharts);
 
         function drawCharts() {
             fetch('/api/reports-analysis')
-                .then(response => response.json())
-                .then(data => {
+                .then((response) => response.json())
+                .then((data) => {
                     if (data.error) {
                         console.error(data.error);
                         return;
                     }
                     drawWeekdayChart(data.weekday_sales);
-                    drawItemDistributionChart(data.item_distribution); // Call the new function
+                    drawItemDistributionChart(data.item_distribution);
                     drawMonthlyChart(data.monthly_sales);
                 })
-                .catch(error => console.error('Error fetching report data:', error));
+                .catch((error) => console.error('Error fetching report data:', error));
         }
 
         const chartOptions = {
@@ -80,20 +79,15 @@
         };
 
         function drawWeekdayChart(weekdayData) {
-            // Define the correct order for sorting
             const dayOrder = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ Nhật'];
-
-            // Convert the data object to an array and sort it according to the defined order
-            const sortedData = Object.entries(weekdayData).sort((a, b) => {
-                return dayOrder.indexOf(a[0]) - dayOrder.indexOf(b[0]);
-            });
+            const sortedData = Object.entries(weekdayData).sort((a, b) => dayOrder.indexOf(a[0]) - dayOrder.indexOf(b[0]));
 
             const data = google.visualization.arrayToDataTable([
                 ['Thứ', 'Doanh thu'],
-                ...sortedData // Use the newly sorted data
+                ...sortedData
             ]);
             const chart = new google.visualization.ColumnChart(document.getElementById('weekday-chart'));
-            chart.draw(data, {...chartOptions, colors: ['#3b82f6']});
+            chart.draw(data, { ...chartOptions, colors: ['#3b82f6'] });
         }
 
         function drawItemDistributionChart(itemData) {
@@ -101,9 +95,8 @@
                 ['Sản phẩm', 'Doanh thu'],
                 ...Object.entries(itemData)
             ]);
-            // Using different colors for the pie chart slices
-            const pieOptions = { 
-                backgroundColor: 'transparent', 
+            const pieOptions = {
+                backgroundColor: 'transparent',
                 pieHole: 0.4,
                 colors: ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#dbeafe'],
                 chartArea: { left: 10, top: 20, width: '90%', height: '80%' }
@@ -118,7 +111,7 @@
                 ...Object.entries(monthlyData)
             ]);
             const chart = new google.visualization.ColumnChart(document.getElementById('monthly-chart'));
-            chart.draw(data, {...chartOptions, colors: ['#3b82f6']});
+            chart.draw(data, { ...chartOptions, colors: ['#3b82f6'] });
         }
         
         window.addEventListener('resize', drawCharts);
