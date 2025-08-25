@@ -26,14 +26,12 @@ def get_sidebar_html(active_page=''):
         with open('templates/_sidebar.html', 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Define placeholders and their corresponding replacement strings
         placeholders = {
             'sales': '{{ sales_active }}',
             'products': '{{ products_active }}',
             'reports': '{{ reports_active }}'
         }
 
-        # Set the 'active' class for the current page, and an empty string for the others
         for page, placeholder in placeholders.items():
             if page == active_page:
                 content = content.replace(placeholder, 'active')
@@ -121,7 +119,7 @@ def product_analysis():
 @app.route('/api/reports-analysis', methods=['GET'])
 def reports_analysis():
     """
-    Provides aggregated data for the reports page with Vietnamese weekdays.
+    Provides aggregated data for the reports page, now including item revenue distribution.
     """
     if invoices_df.empty:
         return jsonify({"error": "No data available or failed to load"}), 500
@@ -131,7 +129,6 @@ def reports_analysis():
     # 1. Weekday Analysis
     df['weekday'] = df['date_time'].dt.day_name()
     weekday_sales = df.groupby('weekday')['total_amount'].sum().round(0)
-    
     vietnamese_days = {
         'Monday': 'Thứ Hai', 'Tuesday': 'Thứ Ba', 'Wednesday': 'Thứ Tư',
         'Thursday': 'Thứ Năm', 'Friday': 'Thứ Sáu', 'Saturday': 'Thứ Bảy', 'Sunday': 'Chủ Nhật'
@@ -143,16 +140,16 @@ def reports_analysis():
     df['month'] = df['date_time'].dt.strftime('%Y-%m')
     monthly_sales = df.groupby('month')['total_amount'].sum().round(0)
     
-    # 3. Invoice Value Distribution
-    bins = [0, 30000, 60000, float('inf')]
-    labels = ['Nhỏ (<30k)', 'Trung bình (30k-60k)', 'Lớn (>=60k)']
-    df['invoice_tier'] = pd.cut(df['total_amount'], bins=bins, labels=labels, right=False)
-    invoice_distribution = df['invoice_tier'].value_counts().reindex(labels, fill_value=0)
+    # 3. Item Revenue Distribution (replaces invoice distribution)
+    items_df = df.explode('items').reset_index(drop=True)
+    items_df['item_name'] = items_df['items'].apply(lambda x: x.get('item_name'))
+    items_df['amount'] = items_df['items'].apply(lambda x: x.get('amount'))
+    item_distribution = items_df.groupby('item_name')['amount'].sum()
 
     response = {
         'weekday_sales': weekday_sales.to_dict(),
         'monthly_sales': monthly_sales.to_dict(),
-        'invoice_distribution': invoice_distribution.to_dict()
+        'item_distribution': item_distribution.to_dict()
     }
     
     return jsonify(response)
