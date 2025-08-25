@@ -1,0 +1,1528 @@
+[
+    {
+        "invoice_id": "INV001",
+        "date_time": "2025-08-26 03:44:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 5246,
+                "amount": 5246
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 7136,
+                "amount": 21408
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 7693,
+                "amount": 15387
+            }
+        ],
+        "total_amount": 42041
+    },
+    {
+        "invoice_id": "INV002",
+        "date_time": "2025-08-21 15:46:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 6864,
+                "amount": 20592
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 8322,
+                "amount": 24966
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 5694,
+                "amount": 5694
+            }
+        ],
+        "total_amount": 51252
+    },
+    {
+        "invoice_id": "INV003",
+        "date_time": "2025-08-27 06:14:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 6279,
+                "amount": 6279
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 12560,
+                "amount": 25121
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 6521,
+                "amount": 13043
+            }
+        ],
+        "total_amount": 44443
+    },
+    {
+        "invoice_id": "INV004",
+        "date_time": "2025-08-17 18:12:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 7866,
+                "amount": 7866
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 9260,
+                "amount": 9260
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 5159,
+                "amount": 5159
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 8370,
+                "amount": 8370
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 10495,
+                "amount": 20990
+            }
+        ],
+        "total_amount": 51645
+    },
+    {
+        "invoice_id": "INV005",
+        "date_time": "2025-09-01 22:32:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 7701,
+                "amount": 23105
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 6963,
+                "amount": 13926
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 7110,
+                "amount": 21331
+            }
+        ],
+        "total_amount": 58362
+    },
+    {
+        "invoice_id": "INV006",
+        "date_time": "2025-08-31 10:50:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 2544,
+                "amount": 2544
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 4235,
+                "amount": 8471
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 3787,
+                "amount": 11361
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 2,
+                "price": 8219,
+                "amount": 16438
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 6853,
+                "amount": 13706
+            }
+        ],
+        "total_amount": 52520
+    },
+    {
+        "invoice_id": "INV007",
+        "date_time": "2025-09-03 15:16:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 3038,
+                "amount": 9115
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 2906,
+                "amount": 8720
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 4691,
+                "amount": 4691
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 10170,
+                "amount": 30511
+            }
+        ],
+        "total_amount": 53037
+    },
+    {
+        "invoice_id": "INV008",
+        "date_time": "2025-09-01 07:12:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 4045,
+                "amount": 12135
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 4463,
+                "amount": 13389
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 3272,
+                "amount": 6545
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 4736,
+                "amount": 4736
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 3674,
+                "amount": 7349
+            }
+        ],
+        "total_amount": 44154
+    },
+    {
+        "invoice_id": "INV009",
+        "date_time": "2025-08-20 22:20:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 10638,
+                "amount": 10638
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 8010,
+                "amount": 24031
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 2751,
+                "amount": 5502
+            }
+        ],
+        "total_amount": 40171
+    },
+    {
+        "invoice_id": "INV010",
+        "date_time": "2025-08-30 08:17:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 9119,
+                "amount": 18239
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 5433,
+                "amount": 10866
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 5913,
+                "amount": 17741
+            }
+        ],
+        "total_amount": 46846
+    },
+    {
+        "invoice_id": "INV011",
+        "date_time": "2025-08-12 05:54:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 5121,
+                "amount": 15364
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 5101,
+                "amount": 15303
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 4694,
+                "amount": 4694
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 2,
+                "price": 4075,
+                "amount": 8151
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 5271,
+                "amount": 10542
+            }
+        ],
+        "total_amount": 54054
+    },
+    {
+        "invoice_id": "INV012",
+        "date_time": "2025-08-22 14:17:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 13192,
+                "amount": 39577
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 9359,
+                "amount": 9359
+            }
+        ],
+        "total_amount": 48936
+    },
+    {
+        "invoice_id": "INV013",
+        "date_time": "2025-08-25 14:34:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 6189,
+                "amount": 12379
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 5732,
+                "amount": 17198
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 13756,
+                "amount": 13756
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 2,
+                "price": 7599,
+                "amount": 15199
+            }
+        ],
+        "total_amount": 58532
+    },
+    {
+        "invoice_id": "INV014",
+        "date_time": "2025-09-08 16:25:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 4144,
+                "amount": 8289
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 5898,
+                "amount": 11797
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 7249,
+                "amount": 21747
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 6769,
+                "amount": 6769
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 1,
+                "price": 5936,
+                "amount": 5936
+            }
+        ],
+        "total_amount": 54538
+    },
+    {
+        "invoice_id": "INV015",
+        "date_time": "2025-08-20 20:55:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 6592,
+                "amount": 19776
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 6413,
+                "amount": 6413
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 10017,
+                "amount": 30052
+            }
+        ],
+        "total_amount": 56241
+    },
+    {
+        "invoice_id": "INV016",
+        "date_time": "2025-08-17 20:50:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 5269,
+                "amount": 10538
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 5335,
+                "amount": 5335
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 2553,
+                "amount": 5106
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 2175,
+                "amount": 2175
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 3,
+                "price": 5697,
+                "amount": 17092
+            }
+        ],
+        "total_amount": 40246
+    },
+    {
+        "invoice_id": "INV017",
+        "date_time": "2025-08-18 05:19:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 13952,
+                "amount": 13952
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 9992,
+                "amount": 9992
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 10101,
+                "amount": 30304
+            }
+        ],
+        "total_amount": 54248
+    },
+    {
+        "invoice_id": "INV018",
+        "date_time": "2025-08-14 18:44:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 5206,
+                "amount": 15618
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 4168,
+                "amount": 8337
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 6012,
+                "amount": 12025
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 2,
+                "price": 6346,
+                "amount": 12692
+            }
+        ],
+        "total_amount": 48672
+    },
+    {
+        "invoice_id": "INV019",
+        "date_time": "2025-08-22 00:09:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 8584,
+                "amount": 25754
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 6376,
+                "amount": 19129
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 2871,
+                "amount": 5743
+            }
+        ],
+        "total_amount": 50626
+    },
+    {
+        "invoice_id": "INV020",
+        "date_time": "2025-08-19 03:51:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 8996,
+                "amount": 26990
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 9238,
+                "amount": 18476
+            }
+        ],
+        "total_amount": 45466
+    },
+    {
+        "invoice_id": "INV021",
+        "date_time": "2025-08-13 00:30:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 7437,
+                "amount": 7437
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 4853,
+                "amount": 9707
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 6354,
+                "amount": 19064
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 4699,
+                "amount": 14097
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 4546,
+                "amount": 9092
+            }
+        ],
+        "total_amount": 59397
+    },
+    {
+        "invoice_id": "INV022",
+        "date_time": "2025-08-24 23:10:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 3741,
+                "amount": 7483
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 3841,
+                "amount": 11523
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 3151,
+                "amount": 9454
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 3710,
+                "amount": 11130
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 3,
+                "price": 1101,
+                "amount": 3303
+            }
+        ],
+        "total_amount": 42893
+    },
+    {
+        "invoice_id": "INV023",
+        "date_time": "2025-09-01 21:54:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 9717,
+                "amount": 19435
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 10487,
+                "amount": 20974
+            }
+        ],
+        "total_amount": 40409
+    },
+    {
+        "invoice_id": "INV024",
+        "date_time": "2025-09-10 03:29:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 6243,
+                "amount": 18731
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 8524,
+                "amount": 8524
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 5425,
+                "amount": 16277
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 2,
+                "price": 5078,
+                "amount": 10157
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 3017,
+                "amount": 6034
+            }
+        ],
+        "total_amount": 59723
+    },
+    {
+        "invoice_id": "INV025",
+        "date_time": "2025-08-30 11:47:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 4084,
+                "amount": 12253
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 4899,
+                "amount": 14698
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 5059,
+                "amount": 15177
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 3725,
+                "amount": 3725
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 5310,
+                "amount": 10621
+            }
+        ],
+        "total_amount": 56474
+    },
+    {
+        "invoice_id": "INV026",
+        "date_time": "2025-08-14 00:16:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 6823,
+                "amount": 20470
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 11857,
+                "amount": 11857
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 12074,
+                "amount": 12074
+            }
+        ],
+        "total_amount": 44401
+    },
+    {
+        "invoice_id": "INV027",
+        "date_time": "2025-09-02 06:00:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 6205,
+                "amount": 18616
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 4317,
+                "amount": 12951
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 1832,
+                "amount": 5496
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 2,
+                "price": 3240,
+                "amount": 6481
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 3987,
+                "amount": 7974
+            }
+        ],
+        "total_amount": 51518
+    },
+    {
+        "invoice_id": "INV028",
+        "date_time": "2025-08-26 20:00:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 15728,
+                "amount": 15728
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 39764,
+                "amount": 39764
+            }
+        ],
+        "total_amount": 55492
+    },
+    {
+        "invoice_id": "INV029",
+        "date_time": "2025-09-10 04:05:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 5742,
+                "amount": 17228
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 3017,
+                "amount": 6034
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 2199,
+                "amount": 2199
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 5937,
+                "amount": 17813
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 1,
+                "price": 3080,
+                "amount": 3080
+            }
+        ],
+        "total_amount": 46354
+    },
+    {
+        "invoice_id": "INV030",
+        "date_time": "2025-08-23 15:45:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 2634,
+                "amount": 2634
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 4535,
+                "amount": 4535
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 6427,
+                "amount": 12854
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 7701,
+                "amount": 23105
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 5302,
+                "amount": 10605
+            }
+        ],
+        "total_amount": 53733
+    },
+    {
+        "invoice_id": "INV031",
+        "date_time": "2025-08-11 18:15:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 9580,
+                "amount": 28742
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 8870,
+                "amount": 8870
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 9132,
+                "amount": 9132
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 11136,
+                "amount": 11136
+            }
+        ],
+        "total_amount": 57880
+    },
+    {
+        "invoice_id": "INV032",
+        "date_time": "2025-09-06 05:34:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 5887,
+                "amount": 5887
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 7642,
+                "amount": 15285
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 12062,
+                "amount": 24125
+            }
+        ],
+        "total_amount": 45297
+    },
+    {
+        "invoice_id": "INV033",
+        "date_time": "2025-08-25 06:44:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 7393,
+                "amount": 7393
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 2998,
+                "amount": 8996
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 7405,
+                "amount": 22217
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 2724,
+                "amount": 8174
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 2941,
+                "amount": 5883
+            }
+        ],
+        "total_amount": 52663
+    },
+    {
+        "invoice_id": "INV034",
+        "date_time": "2025-09-06 18:50:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 8478,
+                "amount": 25435
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 6324,
+                "amount": 12648
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 3165,
+                "amount": 9495
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 6934,
+                "amount": 6934
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 1,
+                "price": 4219,
+                "amount": 4219
+            }
+        ],
+        "total_amount": 58731
+    },
+    {
+        "invoice_id": "INV035",
+        "date_time": "2025-09-02 21:15:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 8511,
+                "amount": 17023
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 7676,
+                "amount": 23028
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 5605,
+                "amount": 11210
+            }
+        ],
+        "total_amount": 51261
+    },
+    {
+        "invoice_id": "INV036",
+        "date_time": "2025-08-16 08:15:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 5348,
+                "amount": 5348
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 6364,
+                "amount": 19092
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 4160,
+                "amount": 12482
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 6216,
+                "amount": 6216
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 5168,
+                "amount": 10337
+            }
+        ],
+        "total_amount": 53475
+    },
+    {
+        "invoice_id": "INV037",
+        "date_time": "2025-08-26 10:42:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 3978,
+                "amount": 3978
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 5328,
+                "amount": 15986
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 2759,
+                "amount": 5518
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 3562,
+                "amount": 10686
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 1,
+                "price": 6148,
+                "amount": 6148
+            }
+        ],
+        "total_amount": 42316
+    },
+    {
+        "invoice_id": "INV038",
+        "date_time": "2025-09-05 10:26:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 6181,
+                "amount": 6181
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 6718,
+                "amount": 20155
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 2473,
+                "amount": 7419
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 7390,
+                "amount": 7390
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 3,
+                "price": 3403,
+                "amount": 10211
+            }
+        ],
+        "total_amount": 51356
+    },
+    {
+        "invoice_id": "INV039",
+        "date_time": "2025-08-16 21:43:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 5651,
+                "amount": 11302
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 5228,
+                "amount": 5228
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 3,
+                "price": 9553,
+                "amount": 28660
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 6719,
+                "amount": 6719
+            }
+        ],
+        "total_amount": 51909
+    },
+    {
+        "invoice_id": "INV040",
+        "date_time": "2025-09-02 04:54:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 2550,
+                "amount": 7652
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 5219,
+                "amount": 15658
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 5081,
+                "amount": 10162
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 1,
+                "price": 7843,
+                "amount": 7843
+            }
+        ],
+        "total_amount": 41315
+    },
+    {
+        "invoice_id": "INV041",
+        "date_time": "2025-08-24 10:38:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 12191,
+                "amount": 12191
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 17732,
+                "amount": 35464
+            }
+        ],
+        "total_amount": 47655
+    },
+    {
+        "invoice_id": "INV042",
+        "date_time": "2025-08-11 09:23:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 4229,
+                "amount": 12689
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 3926,
+                "amount": 3926
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 4001,
+                "amount": 4001
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 7744,
+                "amount": 23232
+            }
+        ],
+        "total_amount": 43848
+    },
+    {
+        "invoice_id": "INV043",
+        "date_time": "2025-08-12 20:02:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 7896,
+                "amount": 15793
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 4268,
+                "amount": 12806
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 4028,
+                "amount": 8057
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 2,
+                "price": 7297,
+                "amount": 14594
+            }
+        ],
+        "total_amount": 51250
+    },
+    {
+        "invoice_id": "INV044",
+        "date_time": "2025-08-18 02:12:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 3534,
+                "amount": 10603
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 5269,
+                "amount": 10538
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 4666,
+                "amount": 9333
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 4132,
+                "amount": 12396
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 6754,
+                "amount": 13509
+            }
+        ],
+        "total_amount": 56379
+    },
+    {
+        "invoice_id": "INV045",
+        "date_time": "2025-08-29 13:07:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 17232,
+                "amount": 17232
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 12729,
+                "amount": 25459
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 10629,
+                "amount": 10629
+            }
+        ],
+        "total_amount": 53320
+    },
+    {
+        "invoice_id": "INV046",
+        "date_time": "2025-08-28 06:43:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 6742,
+                "amount": 13484
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 1,
+                "price": 9729,
+                "amount": 9729
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 4154,
+                "amount": 4154
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 10347,
+                "amount": 31043
+            }
+        ],
+        "total_amount": 58410
+    },
+    {
+        "invoice_id": "INV047",
+        "date_time": "2025-08-17 18:55:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 11524,
+                "amount": 11524
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 13328,
+                "amount": 39984
+            }
+        ],
+        "total_amount": 51508
+    },
+    {
+        "invoice_id": "INV048",
+        "date_time": "2025-09-09 03:03:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 2,
+                "price": 2584,
+                "amount": 5169
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 5528,
+                "amount": 16584
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 9047,
+                "amount": 9047
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 2,
+                "price": 5139,
+                "amount": 10278
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 2,
+                "price": 4276,
+                "amount": 8552
+            }
+        ],
+        "total_amount": 49630
+    },
+    {
+        "invoice_id": "INV049",
+        "date_time": "2025-09-07 11:32:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 3,
+                "price": 6035,
+                "amount": 18106
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 3,
+                "price": 3038,
+                "amount": 9116
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 1,
+                "price": 6367,
+                "amount": 6367
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 2,
+                "price": 5144,
+                "amount": 10288
+            }
+        ],
+        "total_amount": 43877
+    },
+    {
+        "invoice_id": "INV050",
+        "date_time": "2025-08-11 11:59:00",
+        "items": [
+            {
+                "item_name": "Item 1",
+                "quantity": 1,
+                "price": 9317,
+                "amount": 9317
+            },
+            {
+                "item_name": "Item 2",
+                "quantity": 2,
+                "price": 3395,
+                "amount": 6790
+            },
+            {
+                "item_name": "Item 3",
+                "quantity": 2,
+                "price": 2722,
+                "amount": 5444
+            },
+            {
+                "item_name": "Item 4",
+                "quantity": 3,
+                "price": 7894,
+                "amount": 23683
+            },
+            {
+                "item_name": "Item 5",
+                "quantity": 1,
+                "price": 2670,
+                "amount": 2670
+            }
+        ],
+        "total_amount": 47904
+    }
+]
