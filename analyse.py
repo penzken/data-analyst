@@ -1,186 +1,115 @@
-import json
+# analyse.py
+
 import pandas as pd
-from datetime import datetime
-import numpy as np
-from collections import defaultdict
+from datetime import datetime, timedelta
 
-def load_invoices(file_path='invoices.json'):
-    """Load invoices data from JSON file"""
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            return json.load(file)
-    except FileNotFoundError:
-        print(f"File {file_path} not found!")
-        return []
-    except json.JSONDecodeError:
-        print(f"Error decoding JSON from {file_path}")
-        return []
+def analyze_data(invoices_df):
+    """
+    Thực hiện phân tích toàn diện, đảm bảo tất cả các kiểu dữ liệu số
+    được chuyển đổi sang kiểu gốc của Python để tương thích với JSON.
+    """
+    if invoices_df.empty:
+        return {}
 
-def analyze_invoices(invoices):
-    """Analyze invoices and calculate key metrics"""
-    if not invoices:
-        print("No invoices data to analyze")
-        return
+    # --- Các chỉ số tổng quan ---
+    total_invoices = len(invoices_df)
+    overall_total_revenue = invoices_df['tong_tien_hoa_don'].sum()
     
-    print("=== PHÂN TÍCH DỮ LIỆU INVOICES ===\n")
-    
-    # 1. Thống kê cơ bản
-    total_invoices = len(invoices)
-    print(f"1. TỔNG QUAN:")
-    print(f"   - Tổng số hóa đơn: {total_invoices:,}")
-    
-    # 2. Phân tích theo thời gian
-    dates = []
-    total_amounts = []
-    daily_sales = defaultdict(float)
-    
-    for invoice in invoices:
-        date_str = invoice['date_time'].split(' ')[0]  # Lấy ngày
-        date_obj = datetime.strptime(date_str, '%Y-%m-%d')
-        dates.append(date_obj)
-        total_amounts.append(invoice['total_amount'])
-        daily_sales[date_str] += invoice['total_amount']
-    
-    # Chuyển đổi sang pandas để dễ xử lý
-    df = pd.DataFrame({
-        'date': dates,
-        'total_amount': total_amounts
-    })
-    
-    print(f"   - Tổng doanh thu: {sum(total_amounts):,} VND")
-    print(f"   - Doanh thu trung bình/hóa đơn: {np.mean(total_amounts):,.0f} VND")
-    print(f"   - Doanh thu trung bình/ngày: {np.mean(list(daily_sales.values())):,.0f} VND")
-    print(f"   - Thời gian: từ {min(dates).strftime('%Y-%m-%d')} đến {max(dates).strftime('%Y-%m-%d')}")
-    
-    # 3. Phân tích theo ngày trong tuần
-    df['weekday'] = df['date'].dt.day_name()
-    weekday_sales = df.groupby('weekday')['total_amount'].agg(['sum', 'count', 'mean']).round(0)
-    weekday_sales = weekday_sales.reindex(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
-    
-    print(f"\n2. PHÂN TÍCH THEO NGÀY TRONG TUẦN:")
-    for day, row in weekday_sales.iterrows():
-        if pd.notna(row['sum']):
-            print(f"   {day}: {row['sum']:>10,.0f} VND ({row['count']:>2} hóa đơn, TB: {row['mean']:>8,.0f} VND)")
-    
-    # 4. Phân tích theo tháng
-    df['month'] = df['date'].dt.month
-    df['year'] = df['date'].dt.year
-    monthly_sales = df.groupby(['year', 'month'])['total_amount'].agg(['sum', 'count', 'mean']).round(0)
-    
-    print(f"\n3. PHÂN TÍCH THEO THÁNG:")
-    for (year, month), row in monthly_sales.iterrows():
-        month_name = datetime(year, month, 1).strftime('%B %Y')
-        print(f"   {month_name}: {row['sum']:>10,.0f} VND ({row['count']:>2} hóa đơn, TB: {row['mean']:>8,.0f} VND)")
-    
-    # 5. Phân tích sản phẩm
-item_stats = defaultdict(lambda: {'quantity': 0, 'revenue': 0, 'count': 0})
-    
-    for invoice in invoices:
-        for item in invoice['items']:
-            item_name = item['item_name']
-            item_stats[item_name]['quantity'] += item['quantity']
-            item_stats[item_name]['revenue'] += item['amount']
-            item_stats[item_name]['count'] += 1
-    
-    print(f"\n4. PHÂN TÍCH SẢN PHẨM:")
-    sorted_items = sorted(item_stats.items(), key=lambda x: x[1]['revenue'], reverse=True)
-    
-    for item_name, stats in sorted_items:
-        avg_price = stats['revenue'] / stats['quantity'] if stats['quantity'] > 0 else 0
-        print(f"   {item_name}:")
-        print(f"     - Số lượng bán: {stats['quantity']:,}")
-        print(f"     - Doanh thu: {stats['revenue']:,} VND")
-        print(f"     - Số lần xuất hiện: {stats['count']:,}")
-        print(f"     - Giá trung bình: {avg_price:,.0f} VND")
-    
-    # 6. Phân tích giá trị hóa đơn
-    print(f"\n5. PHÂN TÍCH GIÁ TRỊ HÓA ĐƠN:")
-    print(f"   - Hóa đơn cao nhất: {max(total_amounts):,} VND")
-    print(f"   - Hóa đơn thấp nhất: {min(total_amounts):,} VND")
-    print(f"   - Độ lệch chuẩn: {np.std(total_amounts):,.0f} VND")
-    
-    # Phân loại hóa đơn theo giá trị
-    small_invoices = len([x for x in total_amounts if x < 30000])
-    medium_invoices = len([x for x in total_amounts if 30000 <= x < 60000])
-    large_invoices = len([x for x in total_amounts if x >= 60000])
-    
-    print(f"   - Hóa đơn nhỏ (<30k): {small_invoices:,} ({small_invoices/total_invoices*100:.1f}%)")
-    print(f"   - Hóa đơn trung bình (30k-60k): {medium_invoices:,} ({medium_invoices/total_invoices*100:.1f}%)")
-    print(f"   - Hóa đơn lớn (>=60k): {large_invoices:,} ({large_invoices/total_invoices*100:.1f}%)")
-    
-    # 7. Phân tích xu hướng
-    print(f"\n6. PHÂN TÍCH XU HƯỚNG:")
-    df_sorted = df.sort_values('date')
-    df_sorted['cumulative'] = df_sorted['total_amount'].cumsum()
-    
-    # Tính tốc độ tăng trưởng
-    if len(df_sorted) > 1:
-        first_week = df_sorted.head(7)['total_amount'].sum()
-        last_week = df_sorted.tail(7)['total_amount'].sum()
-        if first_week > 0:
-            growth_rate = ((last_week - first_week) / first_week) * 100
-            print(f"   - Tốc độ tăng trưởng (tuần đầu vs tuần cuối): {growth_rate:+.1f}%")
-    
-    # 8. Tạo DataFrame để export
-    print(f"\n7. TẠO DATAFRAME ĐỂ PHÂN TÍCH:")
-    
-    # DataFrame cho hóa đơn
-    invoices_df = pd.DataFrame(invoices)
-    invoices_df['date'] = pd.to_datetime(invoices_df['date_time'])
-    invoices_df['date_only'] = invoices_df['date'].dt.date
-    invoices_df['weekday'] = invoices_df['date'].dt.day_name()
-    invoices_df['month'] = invoices_df['date'].dt.month
-    invoices_df['year'] = invoices_df['date'].dt.year
-    
-    # DataFrame cho items
+    latest_date = invoices_df['datetime'].max()
+    current_month_start = latest_date.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    current_month_df = invoices_df[invoices_df['datetime'] >= current_month_start]
+    current_month_revenue = current_month_df['tong_tien_hoa_don'].sum()
+
+
+    # --- Phân tích sản phẩm ---
     all_items = []
-    for invoice in invoices:
-for item in invoice['items']:
+    for index, row in invoices_df.iterrows():
+        for item in row.get('chi_tiet', []):
             all_items.append({
-                'invoice_id': invoice['invoice_id'],
-                'date': invoice['date_time'].split(' ')[0],
-                'item_name': item['item_name'],
-                'quantity': item['quantity'],
-                'price': item['price'],
-                'amount': item['amount']
+                'ten_hang': item.get('ten_hang'),
+                'so_luong': item.get('so_luong', 0),
+                'thanh_tien': item.get('thanh_tien', 0),
+                'nhom': item.get('nhom', 'Không xác định'), 
+                'loai': item.get('loai', 'Chưa phân loại')
             })
-    
     items_df = pd.DataFrame(all_items)
     
-    print(f"   - Invoices DataFrame: {invoices_df.shape}")
-    print(f"   - Items DataFrame: {items_df.shape}")
+    product_summary = items_df.groupby('ten_hang').agg(
+        total_quantity=('so_luong', 'sum'),
+        total_revenue=('thanh_tien', 'sum')
+    ).reset_index().sort_values(by='total_revenue', ascending=False)
     
-    return invoices_df, items_df
+    product_summary['total_quantity'] = product_summary['total_quantity'].astype(int)
+    product_summary['total_revenue'] = product_summary['total_revenue'].astype(int)
 
-def export_to_csv(invoices_df, items_df):
-    """Export data to CSV files for further analysis"""
-    try:
-        invoices_df.to_csv('invoices_analysis.csv', index=False, encoding='utf-8-sig')
-        items_df.to_csv('items_analysis.csv', index=False, encoding='utf-8-sig')
-        print(f"\n8. XUẤT DỮ LIỆU:")
-        print(f"   - Đã xuất invoices_analysis.csv")
-        print(f"   - Đã xuất items_analysis.csv")
-    except Exception as e:
-        print(f"Lỗi khi xuất file: {e}")
+    # --- HIERARCHICAL PRODUCT ANALYSIS ---
+    product_hierarchy = {}
+    if not items_df.empty:
+        for nhom_name, nhom_df in items_df.groupby('nhom'):
+            product_hierarchy[nhom_name] = {
+                'total_revenue': int(nhom_df['thanh_tien'].sum()),
+                'categories': {}
+            }
+            for loai_name, loai_df in nhom_df.groupby('loai'):
+                top_products = loai_df.groupby('ten_hang')['thanh_tien'].sum().nlargest(5)
+                
+                product_hierarchy[nhom_name]['categories'][loai_name] = {
+                    'total_revenue': int(loai_df['thanh_tien'].sum()),
+                    'top_products': top_products.astype(int).to_dict()
+                }
 
-def main():
-    """Main function to run the analysis"""
-    print("Bắt đầu phân tích dữ liệu invoices...")
-    
-    # Load dữ liệu
-    invoices = load_invoices()
-    
-    if invoices:
-        # Phân tích dữ liệu
-        invoices_df, items_df = analyze_invoices(invoices)
-        
-        # Xuất ra CSV để phân tích thêm
-        export_to_csv(invoices_df, items_df)
-        
-        print(f"\n=== HOÀN THÀNH PHÂN TÍCH ===")
-        print(f"Bạn có thể sử dụng các file CSV để phân tích sâu hơn với pandas, matplotlib, hoặc các công cụ khác.")
-    else:
-        print("Không thể load dữ liệu invoices!")
+    # --- Phân tích cho trang Reports ---
+    df_reports = invoices_df.copy()
+    vietnamese_days_map = {
+        'Monday': 'Thứ Hai', 'Tuesday': 'Thứ Ba', 'Wednesday': 'Thứ Tư',
+        'Thursday': 'Thứ Năm', 'Friday': 'Thứ Sáu', 'Saturday': 'Thứ Bảy', 'Sunday': 'Chủ Nhật'
+    }
+    day_order_vietnamese = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ Nhật']
+    df_reports['weekday_english'] = df_reports['datetime'].dt.day_name()
+    df_reports['weekday_vietnamese'] = df_reports['weekday_english'].map(vietnamese_days_map)
+    weekday_sales = df_reports.groupby('weekday_vietnamese')['tong_tien_hoa_don'].sum()
+    weekday_sales = weekday_sales.reindex(day_order_vietnamese, fill_value=0)
+    df_reports['month'] = df_reports['datetime'].dt.strftime('%Y-%m')
+    monthly_sales = df_reports.groupby('month')['tong_tien_hoa_don'].sum()
+    item_distribution = items_df.groupby('loai')['thanh_tien'].sum()
 
-if __name__ == "__main__":
-    main()
+    # --- Phân tích theo thời gian cho Dashboard chính ---
+    latest_date_normalized = latest_date.normalize()
+    today_df = invoices_df[invoices_df['datetime'].dt.normalize() == latest_date_normalized]
+    yesterday_df = invoices_df[invoices_df['datetime'].dt.normalize() == (latest_date_normalized - timedelta(days=1))]
+    last7days_start = latest_date_normalized - timedelta(days=6)
+    last7days_df = invoices_df[(invoices_df['datetime'] >= last7days_start) & (invoices_df['datetime'] < latest_date_normalized + timedelta(days=1))]
+
+    def process_period(df, start_date, num_days):
+        result = {'total': int(df['tong_tien_hoa_don'].sum()), 'byHour': [0]*24, 'byDay': {}}
+        hourly_sum = df.groupby(df['datetime'].dt.hour)['tong_tien_hoa_don'].sum()
+        for hour, total in hourly_sum.items():
+            result['byHour'][int(hour)] = int(total)
+        for i in range(num_days):
+            day = start_date + timedelta(days=i)
+            result['byDay'][day.strftime('%Y-%m-%d')] = 0
+        daily_sum = df.groupby(df['datetime'].dt.date)['tong_tien_hoa_don'].sum()
+        for date, total in daily_sum.items():
+            result['byDay'][date.strftime('%Y-%m-%d')] = int(total)
+        return result
+
+    # --- Tổng hợp tất cả kết quả ---
+    return {
+        "overall_metrics": {
+            "total_invoices": int(total_invoices),
+            "total_revenue": int(overall_total_revenue),
+            "current_month_revenue": int(current_month_revenue)
+        },
+        "dashboard_data": {
+            "today": process_period(today_df, latest_date_normalized, 1),
+            "yesterday": process_period(yesterday_df, latest_date_normalized - timedelta(days=1), 1),
+            "last7days": process_period(last7days_df, last7days_start, 7)
+        },
+        "product_analysis": product_summary.to_dict(orient='records'),
+        "reports_analysis": {
+            'weekday_sales': weekday_sales.astype(int).to_dict(),
+            'monthly_sales': monthly_sales.astype(int).to_dict(),
+            'item_distribution': item_distribution.astype(int).to_dict()
+        },
+        "product_hierarchy": product_hierarchy
+    }

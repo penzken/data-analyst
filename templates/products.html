@@ -6,6 +6,7 @@
 	<title>Uni Pro Admin - Product Analysis</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="stylesheet" href="static/global.css">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<link
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 		rel="stylesheet"
@@ -15,85 +16,145 @@
 		.sidebar-item:hover { background-color: #f9fafb; color: #3b82f6; }
 		.sidebar-item a.active { color: #3b82f6; background-color: #eff6ff; border-left: 3px solid #3b82f6; padding-left: calc(1rem - 3px); }
 		.sidebar-item a.active .font-medium { font-weight: 600; }
+        .chart-container { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
 	</style>
 </head>
 <body class="bg-gray-50 font-sans">
 	<div class="flex h-[100dvh] overflow-hidden">
-		<!-- Sidebar -->
 		{{ sidebar|safe }}
 
-		<!-- Main Content -->
 		<div class="flex-1 flex flex-col overflow-hidden">
 			<header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
 				<h1 class="text-2xl font-semibold text-gray-800">Product Performance</h1>
 			</header>
 
 			<main class="flex-1 overflow-y-auto p-6">
-				<div class="bg-white rounded-xl shadow-md p-6">
-					<h2 class="text-lg font-bold text-gray-800 mb-4">Sales by Product</h2>
-					<div class="overflow-x-auto">
-						<table class="min-w-full divide-y divide-gray-200">
-							<thead class="bg-gray-50">
-								<tr>
-									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-										Product Name
-									</th>
-									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-										Total Quantity Sold
-									</th>
-									<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-										Total Revenue
-									</th>
-								</tr>
-							</thead>
-							<tbody id="product-table-body" class="bg-white divide-y divide-gray-200">
-								<!-- Data will be injected here by JavaScript -->
-								<tr>
-									<td colspan="3" class="text-center p-8 text-gray-500">Loading product data...</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+                <div id="product-charts-container" class="space-y-8">
+                    <div class="chart-container p-6">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">Doanh thu theo Nhóm sản phẩm</h2>
+                        <div id="nhom-chart" class="w-full h-96"></div>
+                    </div>
+                    </div>
 			</main>
 		</div>
 	</div>
 
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			fetch('/api/product-analysis')
-				.then((response) => response.json())
-				.then((data) => {
-					const tableBody = document.getElementById('product-table-body');
-					tableBody.innerHTML = '';
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(initializeCharts);
 
-					if (data.error) {
-						tableBody.innerHTML = `<tr><td colspan="3" class="text-center p-8 text-red-500">${data.error}</td></tr>`;
-						return;
-					}
+        function initializeCharts() {
+            fetch('/api/product-hierarchy')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error || Object.keys(data).length === 0) {
+                        document.getElementById('product-charts-container').innerHTML = `<p class="text-center text-red-500">Không có dữ liệu để hiển thị.</p>`;
+                        return;
+                    }
+                    createHierarchyCharts(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching product hierarchy data:', error);
+                    document.getElementById('product-charts-container').innerHTML = `<p class="text-center text-red-500">Tải dữ liệu thất bại.</p>`;
+                });
+        }
 
-					if (data.length === 0) {
-						tableBody.innerHTML = `<tr><td colspan="3" class="text-center p-8 text-gray-500">No product data found.</td></tr>`;
-						return;
-					}
+        function createHierarchyCharts(data) {
+            const mainContainer = document.getElementById('product-charts-container');
 
-					data.forEach((item) => {
-						const row = `
-							<tr class="hover:bg-gray-50">
-								<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.item_name}</td>
-								<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${item.total_quantity.toLocaleString()}</td>
-								<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">$${item.total_revenue.toLocaleString()}</td>
-							</tr>
-						`;
-						tableBody.innerHTML += row;
-					});
-				})
-				.catch((error) => {
-					console.error('Error fetching product data:', error);
-					const tableBody = document.getElementById('product-table-body');
-					tableBody.innerHTML = `<tr><td colspan="3" class="text-center p-8 text-red-500">Failed to load data.</td></tr>`;
-				});
-		});
+            // --- Level 1: "Nhóm" Chart ---
+            const nhomData = [['Nhóm', 'Doanh thu']];
+            for (const nhomName in data) {
+                nhomData.push([nhomName, data[nhomName].total_revenue]);
+            }
+            drawPieChart('nhom-chart', nhomData, { pieHole: 0.4, title: 'Doanh thu theo Nhóm sản phẩm' });
+            
+            // --- Level 2 & 3: "Loại" and "Top 5 Products" Charts ---
+            let chartIdCounter = 0;
+            for (const nhomName in data) {
+                const nhom = data[nhomName];
+                const nhomContainer = document.createElement('div');
+                nhomContainer.className = 'chart-container p-6 space-y-6';
+                
+                const nhomTitle = document.createElement('h2');
+                nhomTitle.className = 'text-xl font-bold text-gray-800 text-center border-b pb-2';
+                nhomTitle.textContent = `Phân tích nhóm: ${nhomName}`;
+                nhomContainer.appendChild(nhomTitle);
+
+                // Level 2 Chart
+                const loaiChartId = `loai-chart-${chartIdCounter++}`;
+                const loaiChartDiv = document.createElement('div');
+                loaiChartDiv.id = loaiChartId;
+                loaiChartDiv.className = 'w-full h-96';
+                
+                const loaiData = [['Loại', 'Doanh thu']];
+                for (const loaiName in nhom.categories) {
+                    loaiData.push([loaiName, nhom.categories[loaiName].total_revenue]);
+                }
+                nhomContainer.appendChild(loaiChartDiv);
+                drawPieChart(loaiChartId, loaiData, { title: `Doanh thu theo Loại trong nhóm ${nhomName}` });
+
+                // Level 3 Charts
+                for (const loaiName in nhom.categories) {
+                    const loai = nhom.categories[loaiName];
+                    if (Object.keys(loai.top_products).length > 0) {
+                        const loaiContainer = document.createElement('div');
+                        loaiContainer.className = 'pt-4';
+
+                        const loaiTitle = document.createElement('h3');
+                        loaiTitle.className = 'text-lg font-semibold text-gray-700 mb-2';
+                        loaiTitle.textContent = `Top 5 sản phẩm - ${loaiName}`;
+                        loaiContainer.appendChild(loaiTitle);
+
+                        const top5ChartId = `top5-chart-${chartIdCounter++}`;
+                        const top5ChartDiv = document.createElement('div');
+                        top5ChartDiv.id = top5ChartId;
+                        top5ChartDiv.className = 'w-full h-64';
+                        
+                        const top5Data = [['Sản phẩm', 'Doanh thu']];
+                        // Sort products by revenue before pushing
+                        const sortedProducts = Object.entries(loai.top_products).sort((a,b) => b[1] - a[1]);
+                        sortedProducts.forEach(product => top5Data.push(product));
+
+                        loaiContainer.appendChild(top5ChartDiv);
+                        nhomContainer.appendChild(loaiContainer);
+                        drawBarChart(top5ChartId, top5Data, { title: `Top 5 sản phẩm - ${loaiName}` });
+                    }
+                }
+                mainContainer.appendChild(nhomContainer);
+            }
+        }
+
+        // --- Chart Drawing Helper Functions ---
+        const pieChartOptions = {
+            backgroundColor: 'transparent',
+            chartArea: { left: 10, top: 40, width: '90%', height: '80%' },
+            legend: { position: 'right', textStyle: { color: '#6b7280', fontSize: 12 } }
+        };
+
+        const barChartOptions = {
+            backgroundColor: 'transparent',
+            legend: 'none',
+            bar: { groupWidth: '80%' },
+            hAxis: { textStyle: { color: '#6b7280', fontSize: 12 }, format: 'short', gridlines: { color: '#f3f4f6' } },
+            vAxis: { textStyle: { color: '#6b7280', fontSize: 12 } },
+            chartArea: { left: 150, top: 40, width: '70%', height: '75%' }
+        };
+
+        function drawPieChart(elementId, dataArray, options) {
+            const data = google.visualization.arrayToDataTable(dataArray);
+            const chart = new google.visualization.PieChart(document.getElementById(elementId));
+            chart.draw(data, {...pieChartOptions, ...options});
+        }
+
+        function drawBarChart(elementId, dataArray, options) {
+            const data = google.visualization.arrayToDataTable(dataArray);
+            // Use BarChart for horizontal bars, which is better for long labels
+            const chart = new google.visualization.BarChart(document.getElementById(elementId));
+            chart.draw(data, {...barChartOptions, ...options});
+        }
+
+        window.addEventListener('resize', initializeCharts);
 	</script>
 </body>
 </html>

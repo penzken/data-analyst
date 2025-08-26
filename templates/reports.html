@@ -20,7 +20,6 @@
     <div class="flex h-[100dvh] overflow-hidden">
         {{ sidebar|safe }}
 
-        <!-- Main Content -->
         <div class="flex-1 flex flex-col overflow-hidden">
             <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
                 <h1 class="text-2xl font-semibold text-gray-800">Detailed Reports</h1>
@@ -28,19 +27,16 @@
 
             <main class="flex-1 overflow-y-auto p-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- Weekday Sales Chart -->
                     <div class="chart-container p-6">
                         <h2 class="text-lg font-bold text-gray-800 mb-4">Doanh thu theo ngày trong tuần</h2>
                         <div id="weekday-chart" class="w-full h-80"></div>
                     </div>
 
-                    <!-- Item Distribution Chart -->
                     <div class="chart-container p-6">
-                        <h2 class="text-lg font-bold text-gray-800 mb-4">Phân bổ doanh thu theo sản phẩm</h2>
+                        <h2 class="text-lg font-bold text-gray-800 mb-4">Phân bổ doanh thu theo loại sản phẩm</h2>
                         <div id="item-distribution-chart" class="w-full h-80"></div>
                     </div>
 
-                    <!-- Monthly Sales Chart -->
                     <div class="lg:col-span-2 chart-container p-6">
                         <h2 class="text-lg font-bold text-gray-800 mb-4">Doanh thu theo Tháng</h2>
                         <div id="monthly-chart" class="w-full h-80"></div>
@@ -66,7 +62,7 @@
                     drawItemDistributionChart(data.item_distribution);
                     drawMonthlyChart(data.monthly_sales);
                 })
-                .catch((error) => console.error('Error fetching report data:', error));
+                .catch((error) => console.error('Lỗi khi tải dữ liệu báo cáo:', error));
         }
 
         const chartOptions = {
@@ -74,44 +70,55 @@
             legend: 'none',
             bar: { groupWidth: '60%' },
             hAxis: { textStyle: { color: '#6b7280', fontSize: 12 } },
-            vAxis: { textStyle: { color: '#6b7280', fontSize: 12 }, gridlines: { color: '#f3f4f6' } },
+            vAxis: { textStyle: { color: '#6b7280', fontSize: 12 }, gridlines: { color: '#f3f4f6' }, format: 'short' },
             chartArea: { left: 60, top: 20, width: '85%', height: '75%' }
         };
 
         function drawWeekdayChart(weekdayData) {
+            // *** ADDED SORTING LOGIC BACK IN TO FIX THE ORDER ***
             const dayOrder = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ Nhật'];
-            const sortedData = Object.entries(weekdayData).sort((a, b) => dayOrder.indexOf(a[0]) - dayOrder.indexOf(b[0]));
+            const dataArray = Object.entries(weekdayData);
+            
+            dataArray.sort((a, b) => dayOrder.indexOf(a[0]) - dayOrder.indexOf(b[0]));
 
             const data = google.visualization.arrayToDataTable([
                 ['Thứ', 'Doanh thu'],
-                ...sortedData
+                ...dataArray
             ]);
             const chart = new google.visualization.ColumnChart(document.getElementById('weekday-chart'));
             chart.draw(data, { ...chartOptions, colors: ['#3b82f6'] });
         }
 
         function drawItemDistributionChart(itemData) {
+            const dataArray = Object.entries(itemData);
+            
+            dataArray.sort((a, b) => b[1] - a[1]);
+
             const data = google.visualization.arrayToDataTable([
                 ['Sản phẩm', 'Doanh thu'],
-                ...Object.entries(itemData)
+                ...dataArray
             ]);
             const pieOptions = {
                 backgroundColor: 'transparent',
                 pieHole: 0.4,
-                colors: ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#dbeafe'],
-                chartArea: { left: 10, top: 20, width: '90%', height: '80%' }
+                colors: ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#dbeafe', '#a5b4fc', '#818cf8'],
+                chartArea: { left: 10, top: 20, width: '90%', height: '80%' },
+                legend: { position: 'right', textStyle: { color: '#6b7280', fontSize: 12 } }
             };
             const chart = new google.visualization.PieChart(document.getElementById('item-distribution-chart'));
             chart.draw(data, pieOptions);
         }
 
         function drawMonthlyChart(monthlyData) {
+            // Sắp xếp dữ liệu tháng theo thứ tự tăng dần (ví dụ: '2025-05', '2025-06')
+            const sortedMonthlyData = Object.entries(monthlyData).sort((a, b) => a[0].localeCompare(b[0]));
+
             const data = google.visualization.arrayToDataTable([
                 ['Tháng', 'Doanh thu'],
-                ...Object.entries(monthlyData)
+                ...sortedMonthlyData
             ]);
             const chart = new google.visualization.ColumnChart(document.getElementById('monthly-chart'));
-            chart.draw(data, { ...chartOptions, colors: ['#3b82f6'] });
+            chart.draw(data, { ...chartOptions, colors: ['#22c55e'] });
         }
         
         window.addEventListener('resize', drawCharts);

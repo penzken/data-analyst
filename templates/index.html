@@ -13,171 +13,110 @@
         .sidebar-item:hover { background-color: #f9fafb; color: #3b82f6; }
         .sidebar-item a.active { color: #3b82f6; background-color: #eff6ff; border-left: 3px solid #3b82f6; padding-left: calc(1rem - 3px); }
         .sidebar-item a.active .font-medium { font-weight: 600; }
-        .metric-card { background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .metric-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15); }
-        .metric-card.no-hover:hover { transform: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .metric-card { background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
         .chart-container { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
         .tab-item { transition: all 0.2s ease; }
         .tab-item.active { color: #3b82f6; border-bottom: 2px solid #3b82f6; }
-        @media (max-width: 768px) {
-            .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
-            .sidebar.open { transform: translateX(0); }
-        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <div class="flex h-[100dvh] overflow-hidden">
-        <!-- Navigation & Sidebar -->
         {{ sidebar|safe }}
 
-        <!-- Main Content -->
         <div class="flex-1 flex flex-col overflow-hidden">
             <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-4">
-                        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
-                            <i class="fas fa-bars text-gray-600"></i>
-                        </button>
-                        <div class="flex items-center space-x-2 bg-gray-100 rounded-lg px-4 py-2">
-                            <i class="fas fa-bars text-blue-500"></i>
-                            <span class="text-sm text-gray-600">Megamenu</span>
-                            <i class="fas fa-chevron-down text-xs text-gray-400"></i>
-                        </div>
-                        <div class="hidden md:flex items-center bg-gray-100 rounded-lg px-4 py-2 w-64">
-                            <i class="fas fa-search text-gray-400 mr-3"></i>
-                            <input type="text" placeholder="Search" class="bg-transparent outline-none text-sm flex-1">
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <button class="p-2 rounded-lg hover:bg-gray-100">
-                            <i class="fas fa-search text-gray-600 md:hidden"></i>
-                        </button>
-                        <button class="p-2 rounded-lg hover:bg-gray-100">
-                            <i class="fas fa-edit text-gray-600"></i>
-                        </button>
-                        <button class="p-2 rounded-lg hover:bg-gray-100 relative">
-                            <i class="fas fa-bell text-gray-600"></i>
-                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
-                        </button>
-                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user text-white text-sm"></i>
-                        </div>
-                    </div>
-                </div>
+                <h1 class="text-2xl font-semibold text-gray-800">Sales Dashboard</h1>
             </header>
 
             <main class="flex-1 overflow-y-auto p-6">
-                <!-- Metrics Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                    <div class="metric-card no-hover rounded-xl p-6">
-                        <div class="flex items-center justify-between">
+                    <div class="metric-card rounded-xl p-6">
+                        <div class="flex items-center justify-between h-full">
                             <div>
                                 <div id="total-invoices" class="text-3xl font-bold text-blue-600 mb-1">...</div>
-                                <div class="text-gray-600 text-sm mb-2">Tổng hóa đơn</div>
+                                <div class="text-gray-600 text-sm">Tổng hóa đơn</div>
                             </div>
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center self-start">
                                 <i class="fas fa-shopping-bag text-blue-500 text-xl"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="metric-card no-hover rounded-xl p-6">
-                        <div class="flex items-center justify-between">
+                    <div class="metric-card rounded-xl p-6">
+                         <div class="flex items-center justify-between h-full">
                             <div>
                                 <div id="total-revenue" class="text-3xl font-bold text-blue-600 mb-1">...</div>
-                                <div class="text-gray-600 text-sm mb-2">Tổng doanh thu</div>
+                                <div class="text-gray-600 text-sm">Tổng doanh thu</div>
+                                <div class="mt-2 pt-2 border-t border-gray-100">
+                                    <span class="text-xs text-gray-500">Tháng này:</span>
+                                    <span id="month-revenue" class="text-sm font-semibold text-gray-700">...</span>
+                                </div>
                             </div>
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center self-start">
                                 <i class="fas fa-dollar-sign text-blue-500 text-xl"></i>
                             </div>
                         </div>
                     </div>
                     <div id="kpi-card" class="metric-card rounded-xl p-6 md:col-span-2 lg:col-span-1 text-center flex flex-col cursor-pointer relative">
                         <i class="fas fa-pencil-alt absolute top-4 right-4 text-gray-400"></i>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">KPI</h3>
-                        <div class="relative flex-grow flex items-center justify-center my-2">
-                            <div id="kpiChart" class="absolute inset-0"></div>
-                            <div id="kpi-percentage" class="relative text-3xl font-bold text-gray-800">...%</div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">KPI Tháng</h3>
+                        <div class="flex-grow flex items-center justify-center my-2">
+                            <div id="kpi-percentage" class="text-3xl font-bold text-gray-800">...%</div>
                         </div>
                         <div class="mt-2">
-                            <div class="text-xs text-gray-500">Tổng doanh thu / KPI</div>
+                            <div class="text-xs text-gray-500">Doanh thu tháng / KPI</div>
                             <div id="kpi-values" class="text-lg font-bold text-gray-800">... / ...</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Revenue Chart -->
-                <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8">
-                    <div class="xl:col-span-3 chart-container p-6">
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4">
-                            <div id="revenue-title" class="text-lg font-bold text-gray-800 mb-4 sm:mb-0">
-                                DOANH SỐ: <span id="revenue-total" class="text-blue-600">...</span>
-                            </div>
-                            <div class="relative">
-                                <button id="date-filter-btn" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium flex items-center">
-                                    <span id="date-filter-text">Hôm nay</span>
-                                    <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                                </button>
-                                <div id="date-filter-dropdown" class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl z-10 hidden">
-                                    <a href="#" data-period="today" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hôm nay</a>
-                                    <a href="#" data-period="yesterday" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hôm qua</a>
-                                    <a href="#" data-period="last7days" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">7 ngày qua</a>
-                                </div>
+                <div class="chart-container p-6">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4">
+                        <div id="revenue-title" class="text-lg font-bold text-gray-800 mb-4 sm:mb-0">
+                            DOANH SỐ: <span id="revenue-total" class="text-blue-600">...</span>
+                        </div>
+                        <div class="relative">
+                            <button id="date-filter-btn" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium flex items-center">
+                                <span id="date-filter-text">Hôm nay</span>
+                                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                            </button>
+                            <div id="date-filter-dropdown" class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl z-10 hidden">
+                                <a href="#" data-period="today" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hôm nay</a>
+                                <a href="#" data-period="yesterday" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hôm qua</a>
+                                <a href="#" data-period="last7days" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">7 ngày qua</a>
                             </div>
                         </div>
-                        <div class="border-b border-gray-200 mb-4">
-                            <nav class="-mb-px flex space-x-6" id="chart-tabs">
-                                <button data-view="day" class="tab-item active py-2 px-1 text-sm font-medium text-gray-500 hover:text-gray-700">Theo ngày</button>
-                                <button data-view="hour" class="tab-item py-2 px-1 text-sm font-medium text-gray-500 hover:text-gray-700">Theo giờ</button>
-                            </nav>
-                        </div>
-                        <div id="revenueChart" class="w-full h-80"></div>
                     </div>
+                    <div class="border-b border-gray-200 mb-4">
+                        <nav class="-mb-px flex space-x-6" id="chart-tabs">
+                            <button data-view="day" class="tab-item active py-2 px-1 text-sm font-medium text-gray-500 hover:text-gray-700">Theo ngày</button>
+                            <button data-view="hour" class="tab-item py-2 px-1 text-sm font-medium text-gray-500 hover:text-gray-700">Theo giờ</button>
+                        </nav>
+                    </div>
+                    <div id="revenueChart" class="w-full h-80"></div>
                 </div>
             </main>
         </div>
     </div>
 
-    <!-- Modals -->
     <div id="kpi-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
-            <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Set KPI</h2>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2">Current KPI</label>
-                <p id="current-kpi-display" class="text-lg text-gray-900 font-semibold"></p>
-            </div>
-            <div class="mb-6">
-                <label for="new-kpi-input" class="block text-gray-700 text-sm font-bold mb-2">New KPI</label>
-                <input type="number" id="new-kpi-input" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter new KPI value">
-            </div>
-            <div class="flex justify-end space-x-4">
-                <button id="cancel-kpi-btn" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Cancel</button>
-                <button id="confirm-kpi-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Confirm</button>
-            </div>
-        </div>
+        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md"><h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Set KPI</h2><div class="mb-4"><label class="block text-gray-700 text-sm font-bold mb-2">Current KPI</label><p id="current-kpi-display" class="text-lg text-gray-900 font-semibold"></p></div><div class="mb-6"><label for="new-kpi-input" class="block text-gray-700 text-sm font-bold mb-2">New KPI</label><input type="number" id="new-kpi-input" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter new KPI value"></div><div class="flex justify-end space-x-4"><button id="cancel-kpi-btn" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Cancel</button><button id="confirm-kpi-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Confirm</button></div></div>
     </div>
     <div id="confirm-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-sm">
-            <h2 class="text-xl font-bold mb-6 text-gray-800 text-center">Are you sure?</h2>
-            <p class="text-center text-gray-600 mb-8">Do you want to set this new KPI?</p>
-            <div class="flex justify-center space-x-4">
-                <button id="cancel-confirm-btn" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded">No</button>
-                <button id="confirm-final-btn" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 rounded">Yes</button>
-            </div>
-        </div>
+        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-sm"><h2 class="text-xl font-bold mb-6 text-gray-800 text-center">Are you sure?</h2><p class="text-center text-gray-600 mb-8">Do you want to set this new KPI?</p><div class="flex justify-center space-x-4"><button id="cancel-confirm-btn" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded">No</button><button id="confirm-final-btn" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 rounded">Yes</button></div></div>
     </div>
 
     <script>
         // --- GLOBAL STATE ---
-        let kpiGoal = 2500000;
-        let allInvoices = [];
-        let processedData = {};
-        let overallTotalRevenue = 0;
+        let kpiGoal = 25500000;
+        let allDashboardData = {}; 
         let currentPeriod = 'today';
         let currentView = 'day';
 
         // --- DOM ELEMENTS ---
         const totalInvoicesEl = document.getElementById('total-invoices');
         const totalRevenueEl = document.getElementById('total-revenue');
+        // *** CHANGE 2: Added variable for the new element ***
+        const monthRevenueEl = document.getElementById('month-revenue');
         const revenueTotalEl = document.getElementById('revenue-total');
         const dateFilterBtn = document.getElementById('date-filter-btn');
         const dateFilterText = document.getElementById('date-filter-text');
@@ -195,17 +134,51 @@
         const kpiPercentageText = document.getElementById('kpi-percentage');
         const kpiValuesText = document.getElementById('kpi-values');
 
-        // --- HELPER FUNCTIONS ---
-        const formatCurrency = (num) => num.toLocaleString('en-US');
-        const toDateString = (date) => date.toISOString().split('T')[0];
+        const formatCurrency = (num) => num.toLocaleString('vi-VN');
 
-        // --- UI UPDATE & EVENT LISTENERS ---
+        // --- GOOGLE CHARTS ---
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(initializeDashboard);
+
+        async function initializeDashboard() {
+            try {
+                const response = await fetch('/api/dashboard-data');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                
+                allDashboardData = await response.json();
+                
+                if (allDashboardData.error) throw new Error(allDashboardData.error);
+                
+                updateStaticMetrics();
+                updateDashboard();
+                setupEventListeners();
+
+            } catch (error) {
+                console.error("Could not initialize dashboard:", error);
+                totalInvoicesEl.textContent = 'Error';
+                totalRevenueEl.textContent = 'Error';
+                revenueTotalEl.textContent = 'Error';
+            }
+        }
+        
+        function updateStaticMetrics() {
+            const metrics = allDashboardData.overall_metrics;
+            totalInvoicesEl.textContent = metrics.total_invoices.toLocaleString();
+            totalRevenueEl.textContent = formatCurrency(metrics.total_revenue);
+            // *** CHANGE 3: Populate the new element with data ***
+            monthRevenueEl.textContent = formatCurrency(metrics.current_month_revenue);
+            updateKpiUI(metrics.current_month_revenue);
+        }
+
+        function updateDashboard() {
+            const periodData = allDashboardData.dashboard_data[currentPeriod];
+            revenueTotalEl.textContent = `${formatCurrency(periodData.total)}`;
+            drawRevenueChart();
+        }
+        
         function setupEventListeners() {
             dateFilterBtn.addEventListener('click', () => dateFilterDropdown.classList.toggle('hidden'));
-            document.addEventListener('click', (e) => {
-                if (!dateFilterBtn.contains(e.target)) dateFilterDropdown.classList.add('hidden');
-            });
-
+            document.addEventListener('click', (e) => { if (!dateFilterBtn.contains(e.target)) dateFilterDropdown.classList.add('hidden'); });
             dateFilterDropdown.addEventListener('click', (e) => {
                 e.preventDefault();
                 const target = e.target.closest('a');
@@ -216,7 +189,6 @@
                     updateDashboard();
                 }
             });
-
             chartTabs.addEventListener('click', (e) => {
                 if (e.target.tagName === 'BUTTON') {
                     currentView = e.target.dataset.view;
@@ -225,7 +197,6 @@
                     drawRevenueChart();
                 }
             });
-
             kpiCard.addEventListener('click', () => {
                 currentKpiDisplay.textContent = `${formatCurrency(kpiGoal)}`;
                 newKpiInput.value = '';
@@ -241,178 +212,46 @@
             cancelConfirmBtn.addEventListener('click', () => confirmModal.classList.add('hidden'));
             confirmFinalBtn.addEventListener('click', () => {
                 kpiGoal = Number(newKpiInput.value);
-                updateKpiUI(overallTotalRevenue);
+                updateKpiUI(allDashboardData.overall_metrics.current_month_revenue);
                 confirmModal.classList.add('hidden');
             });
-            
             window.addEventListener('resize', () => {
-                if (allInvoices.length > 0) {
+                if (allDashboardData.dashboard_data) {
                     drawRevenueChart();
-                    drawKpiChart(overallTotalRevenue, kpiGoal);
                 }
             });
         }
         
-        function updateKpiUI(revenue) {
-            const percentage = kpiGoal > 0 ? Math.round((revenue / kpiGoal) * 100) : 0;
+        function updateKpiUI(monthlyRevenue) {
+            const percentage = kpiGoal > 0 ? Math.round((monthlyRevenue / kpiGoal) * 100) : 0;
             kpiPercentageText.textContent = `${percentage}%`;
-            kpiValuesText.textContent = `${formatCurrency(Math.round(revenue))} / ${formatCurrency(kpiGoal)}`;
-            drawKpiChart(revenue, kpiGoal);
+            kpiValuesText.textContent = `${formatCurrency(monthlyRevenue)} / ${formatCurrency(kpiGoal)}`;
         }
 
-        // --- GOOGLE CHARTS ---
-        google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(initializeDashboard);
-
-        // --- DATA FETCHING AND PROCESSING ---
-        async function initializeDashboard() {
-            try {
-                const response = await fetch('/api/invoices');
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                allInvoices = await response.json();
-                
-                processAllData();
-                updateDashboard();
-                setupEventListeners();
-
-            } catch (error) {
-                console.error("Could not initialize dashboard:", error);
-                totalInvoicesEl.textContent = 'Error';
-                totalRevenueEl.textContent = 'Error';
-            }
-        }
-        
-        function updateDashboard() {
-            const periodData = processedData[currentPeriod];
-            revenueTotalEl.textContent = `${formatCurrency(Math.round(periodData.total))}`;
-            updateKpiUI(overallTotalRevenue);
-            drawRevenueChart();
-        }
-
-        function processAllData() {
-            if (allInvoices.length === 0) return;
-
-            const latestDate = new Date(Math.max(...allInvoices.map((e) => new Date(e.date + 'T' + e.time))));
-            latestDate.setHours(0, 0, 0, 0);
-
-            const today = new Date(latestDate);
-            const yesterday = new Date(today); yesterday.setDate(today.getDate() - 1);
-            
-            const todayStr = toDateString(today);
-            const yesterdayStr = toDateString(yesterday);
-
-            // Initialize processed data structure
-            processedData = {
-                today: { total: 0, byHour: Array(24).fill(0), byDay: { [todayStr]: 0 } },
-                yesterday: { total: 0, byHour: Array(24).fill(0), byDay: { [yesterdayStr]: 0 } },
-                last7days: { total: 0, byHour: Array(24).fill(0), byDay: {} }
-            };
-
-            // Pre-populate the last7days.byDay object with all 7 days, initializing revenue to 0.
-            for (let i = 0; i < 7; i++) {
-                const date = new Date(today);
-                date.setDate(today.getDate() - i);
-                const dateStr = toDateString(date);
-                processedData.last7days.byDay[dateStr] = 0;
-            }
-
-            const sevenDaysAgo = new Date(today); sevenDaysAgo.setDate(today.getDate() - 6);
-
-            allInvoices.forEach((inv) => {
-                const invDate = new Date(inv.date + 'T' + inv.time);
-                const invDateStr = toDateString(invDate);
-                const hour = invDate.getHours();
-                const amount = inv.total_amount;
-
-                // Process 'today' data
-                if (invDateStr === todayStr) {
-                    processedData.today.total += amount;
-                    processedData.today.byHour[hour] += amount;
-                    processedData.today.byDay[todayStr] += amount;
-                }
-                
-                // Process 'yesterday' data
-                if (invDateStr === yesterdayStr) {
-                    processedData.yesterday.total += amount;
-                    processedData.yesterday.byHour[hour] += amount;
-                    processedData.yesterday.byDay[yesterdayStr] += amount;
-                }
-                
-                // Process 'last7days' data
-                if (invDate >= sevenDaysAgo && invDate < new Date(today.getTime() + 24 * 60 * 60 * 1000)) {
-                    processedData.last7days.total += amount;
-                    // Note: byHour for last7days is an aggregation of hours across all 7 days.
-                    processedData.last7days.byHour[hour] += amount; 
-                    if (Object.prototype.hasOwnProperty.call(processedData.last7days.byDay, invDateStr)) {
-                        processedData.last7days.byDay[invDateStr] += amount;
-                    }
-                }
-            });
-            
-            // Calculate overall metrics for top cards
-            overallTotalRevenue = allInvoices.reduce((sum, inv) => sum + inv.total_amount, 0);
-            totalInvoicesEl.textContent = allInvoices.length;
-            totalRevenueEl.textContent = formatCurrency(Math.round(overallTotalRevenue));
-        }
-
-        // --- CHART DRAWING FUNCTIONS ---
         function drawRevenueChart() {
-            const periodData = processedData[currentPeriod];
+            const periodData = allDashboardData.dashboard_data[currentPeriod];
             if (!periodData) return;
-            let dataRows;
-            
+            let dataRows = [];
             if (currentView === 'hour') {
-                dataRows = [['Hour', 'Revenue']];
-                for (let i = 0; i < 24; i++) {
-                    dataRows.push([`${i}:00`, periodData.byHour[i]]);
-                }
+                dataRows.push(['Hour', 'Revenue']);
+                periodData.byHour.forEach((revenue, hour) => { dataRows.push([`${hour}:00`, revenue]); });
             } else {
-                dataRows = [['Date', 'Revenue']];
+                dataRows.push(['Date', 'Revenue']);
                 const sortedDays = Object.keys(periodData.byDay).sort();
                 sortedDays.forEach((day) => {
                     const dayLabel = new Date(day + 'T00:00:00').toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit' });
                     dataRows.push([dayLabel, periodData.byDay[day]]);
                 });
             }
-
-            if (dataRows.length === 1) {
-                dataRows.push(['No data', 0]);
-            }
-            
+            if (dataRows.length === 1) dataRows.push(['No data', 0]);
             const data = google.visualization.arrayToDataTable(dataRows);
             const options = {
-                colors: ['#3b82f6'],
-                backgroundColor: 'transparent',
-                legend: 'none',
-                bar: { groupWidth: '60%' },
+                colors: ['#3b82f6'], backgroundColor: 'transparent', legend: 'none', bar: { groupWidth: '60%' },
                 hAxis: { textStyle: { color: '#6b7280', fontSize: 12 } },
-                vAxis: { textStyle: { color: '#6b7280', fontSize: 12 }, gridlines: { color: '#f3f4f6' } },
+                vAxis: { textStyle: { color: '#6b7280', fontSize: 12 }, gridlines: { color: '#f3f4f6' }, format: 'short' },
                 chartArea: { left: 60, top: 20, width: '90%', height: '80%' }
             };
             const chart = new google.visualization.ColumnChart(document.getElementById('revenueChart'));
-            chart.draw(data, options);
-        }
-
-        function drawKpiChart(revenue, goal) {
-            const percentage = goal > 0 ? (revenue / goal) * 100 : 0;
-            const achieved = Math.min(percentage, 100);
-            const remaining = 100 - achieved;
-            
-            const data = google.visualization.arrayToDataTable([
-                ['Status', 'Value'],
-                ['Achieved', achieved],
-                ['Remaining', remaining]
-            ]);
-            const options = {
-                pieHole: 0.8,
-                colors: ['#3b82f6', '#e5e7eb'],
-                legend: 'none',
-                pieSliceText: 'none',
-                backgroundColor: 'transparent',
-                tooltip: { trigger: 'none' },
-                chartArea: { width: '80%', height: '80%' }
-            };
-            const chart = new google.visualization.PieChart(document.getElementById('kpiChart'));
             chart.draw(data, options);
         }
     </script>

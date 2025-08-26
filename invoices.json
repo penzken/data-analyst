@@ -1,1528 +1,1830 @@
 [
     {
-        "invoice_id": "INV001",
-        "date_time": "2025-08-26 03:44:00",
-        "items": [
+        "id_hoa_don": "HD001",
+        "datetime": "2025-05-01 13:30:59",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 5246,
-                "amount": 5246
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 7136,
-                "amount": 21408
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 7693,
-                "amount": 15387
+                "ten_hang": "Cơm Gà Rôti",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
             }
         ],
-        "total_amount": 42041
+        "tong_tien_hoa_don": 55000
     },
     {
-        "invoice_id": "INV002",
-        "date_time": "2025-08-21 15:46:00",
-        "items": [
+        "id_hoa_don": "HD002",
+        "datetime": "2025-05-02 09:08:59",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 6864,
-                "amount": 20592
+                "ten_hang": "Bánh Mì Gà Xé",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 8322,
-                "amount": 24966
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 5694,
-                "amount": 5694
+                "ten_hang": "Espresso",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 51252
+        "tong_tien_hoa_don": 60000
     },
     {
-        "invoice_id": "INV003",
-        "date_time": "2025-08-27 06:14:00",
-        "items": [
+        "id_hoa_don": "HD003",
+        "datetime": "2025-05-02 11:50:03",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 6279,
-                "amount": 6279
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 12560,
-                "amount": 25121
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 6521,
-                "amount": 13043
+                "ten_hang": "Cơm Chiên Dương Châu",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
             }
         ],
-        "total_amount": 44443
+        "tong_tien_hoa_don": 60000
     },
     {
-        "invoice_id": "INV004",
-        "date_time": "2025-08-17 18:12:00",
-        "items": [
+        "id_hoa_don": "HD004",
+        "datetime": "2025-05-04 09:03:52",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 7866,
-                "amount": 7866
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 9260,
-                "amount": 9260
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 5159,
-                "amount": 5159
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 8370,
-                "amount": 8370
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 10495,
-                "amount": 20990
+                "ten_hang": "Phở Bò Tái Nạm",
+                "so_luong": 2,
+                "don_gia": 60000,
+                "thanh_tien": 120000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             }
         ],
-        "total_amount": 51645
+        "tong_tien_hoa_don": 120000
     },
     {
-        "invoice_id": "INV005",
-        "date_time": "2025-09-01 22:32:00",
-        "items": [
+        "id_hoa_don": "HD005",
+        "datetime": "2025-05-04 16:02:23",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 7701,
-                "amount": 23105
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 6963,
-                "amount": 13926
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 7110,
-                "amount": 21331
+                "ten_hang": "Sữa Tươi Trân Châu Đường Đen",
+                "so_luong": 2,
+                "don_gia": 50000,
+                "thanh_tien": 100000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 58362
+        "tong_tien_hoa_don": 100000
     },
     {
-        "invoice_id": "INV006",
-        "date_time": "2025-08-31 10:50:00",
-        "items": [
+        "id_hoa_don": "HD006",
+        "datetime": "2025-05-04 19:26:48",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 2544,
-                "amount": 2544
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 4235,
-                "amount": 8471
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 3787,
-                "amount": 11361
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 2,
-                "price": 8219,
-                "amount": 16438
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 6853,
-                "amount": 13706
+                "ten_hang": "Trà Sữa Socola",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 52520
+        "tong_tien_hoa_don": 45000
     },
     {
-        "invoice_id": "INV007",
-        "date_time": "2025-09-03 15:16:00",
-        "items": [
+        "id_hoa_don": "HD007",
+        "datetime": "2025-05-06 08:41:56",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 3038,
-                "amount": 9115
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 2906,
-                "amount": 8720
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 4691,
-                "amount": 4691
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 10170,
-                "amount": 30511
+                "ten_hang": "Phở Cuốn",
+                "so_luong": 2,
+                "don_gia": 45000,
+                "thanh_tien": 90000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             }
         ],
-        "total_amount": 53037
+        "tong_tien_hoa_don": 90000
     },
     {
-        "invoice_id": "INV008",
-        "date_time": "2025-09-01 07:12:00",
-        "items": [
+        "id_hoa_don": "HD008",
+        "datetime": "2025-05-07 09:35:52",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 4045,
-                "amount": 12135
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 4463,
-                "amount": 13389
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 3272,
-                "amount": 6545
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 4736,
-                "amount": 4736
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 3674,
-                "amount": 7349
+                "ten_hang": "Bánh Mì Gà Xé",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
             }
         ],
-        "total_amount": 44154
+        "tong_tien_hoa_don": 25000
     },
     {
-        "invoice_id": "INV009",
-        "date_time": "2025-08-20 22:20:00",
-        "items": [
+        "id_hoa_don": "HD009",
+        "datetime": "2025-05-07 21:45:16",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 10638,
-                "amount": 10638
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 8010,
-                "amount": 24031
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 2751,
-                "amount": 5502
+                "ten_hang": "Trà Hoa Cúc",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             }
         ],
-        "total_amount": 40171
+        "tong_tien_hoa_don": 35000
     },
     {
-        "invoice_id": "INV010",
-        "date_time": "2025-08-30 08:17:00",
-        "items": [
+        "id_hoa_don": "HD010",
+        "datetime": "2025-05-08 07:29:31",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 9119,
-                "amount": 18239
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 5433,
-                "amount": 10866
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 5913,
-                "amount": 17741
+                "ten_hang": "Bánh Mì Ốp La",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
             }
         ],
-        "total_amount": 46846
+        "tong_tien_hoa_don": 25000
     },
     {
-        "invoice_id": "INV011",
-        "date_time": "2025-08-12 05:54:00",
-        "items": [
+        "id_hoa_don": "HD011",
+        "datetime": "2025-05-10 09:04:15",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 5121,
-                "amount": 15364
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 5101,
-                "amount": 15303
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 4694,
-                "amount": 4694
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 2,
-                "price": 4075,
-                "amount": 8151
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 5271,
-                "amount": 10542
+                "ten_hang": "Cà Phê Trứng",
+                "so_luong": 2,
+                "don_gia": 45000,
+                "thanh_tien": 90000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 54054
+        "tong_tien_hoa_don": 90000
     },
     {
-        "invoice_id": "INV012",
-        "date_time": "2025-08-22 14:17:00",
-        "items": [
+        "id_hoa_don": "HD012",
+        "datetime": "2025-05-10 09:12:52",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 13192,
-                "amount": 39577
+                "ten_hang": "Phở Xào Bò",
+                "so_luong": 1,
+                "don_gia": 65000,
+                "thanh_tien": 65000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 9359,
-                "amount": 9359
+                "ten_hang": "Cà Phê Sữa",
+                "so_luong": 1,
+                "don_gia": 30000,
+                "thanh_tien": 30000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 48936
+        "tong_tien_hoa_don": 95000
     },
     {
-        "invoice_id": "INV013",
-        "date_time": "2025-08-25 14:34:00",
-        "items": [
+        "id_hoa_don": "HD013",
+        "datetime": "2025-05-10 15:45:13",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 6189,
-                "amount": 12379
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 5732,
-                "amount": 17198
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 13756,
-                "amount": 13756
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 2,
-                "price": 7599,
-                "amount": 15199
+                "ten_hang": "Trà Sữa Trân Châu Đường Đen",
+                "so_luong": 1,
+                "don_gia": 50000,
+                "thanh_tien": 50000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 58532
+        "tong_tien_hoa_don": 50000
     },
     {
-        "invoice_id": "INV014",
-        "date_time": "2025-09-08 16:25:00",
-        "items": [
+        "id_hoa_don": "HD014",
+        "datetime": "2025-05-11 12:16:22",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 4144,
-                "amount": 8289
+                "ten_hang": "Cơm Tấm Sườn Bì Chả",
+                "so_luong": 2,
+                "don_gia": 60000,
+                "thanh_tien": 120000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 5898,
-                "amount": 11797
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 7249,
-                "amount": 21747
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 6769,
-                "amount": 6769
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 1,
-                "price": 5936,
-                "amount": 5936
+                "ten_hang": "Trà Chanh",
+                "so_luong": 2,
+                "don_gia": 20000,
+                "thanh_tien": 40000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             }
         ],
-        "total_amount": 54538
+        "tong_tien_hoa_don": 160000
     },
     {
-        "invoice_id": "INV015",
-        "date_time": "2025-08-20 20:55:00",
-        "items": [
+        "id_hoa_don": "HD015",
+        "datetime": "2025-05-11 20:05:07",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 6592,
-                "amount": 19776
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 6413,
-                "amount": 6413
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 10017,
-                "amount": 30052
+                "ten_hang": "Trà Sữa Trân Châu Đường Đen",
+                "so_luong": 1,
+                "don_gia": 50000,
+                "thanh_tien": 50000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 56241
+        "tong_tien_hoa_don": 50000
     },
     {
-        "invoice_id": "INV016",
-        "date_time": "2025-08-17 20:50:00",
-        "items": [
+        "id_hoa_don": "HD016",
+        "datetime": "2025-05-13 07:14:53",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 5269,
-                "amount": 10538
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 5335,
-                "amount": 5335
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 2553,
-                "amount": 5106
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 2175,
-                "amount": 2175
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 3,
-                "price": 5697,
-                "amount": 17092
+                "ten_hang": "Phở Bò Gân",
+                "so_luong": 1,
+                "don_gia": 65000,
+                "thanh_tien": 65000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             }
         ],
-        "total_amount": 40246
+        "tong_tien_hoa_don": 65000
     },
     {
-        "invoice_id": "INV017",
-        "date_time": "2025-08-18 05:19:00",
-        "items": [
+        "id_hoa_don": "HD017",
+        "datetime": "2025-05-14 08:31:01",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 13952,
-                "amount": 13952
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 9992,
-                "amount": 9992
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 10101,
-                "amount": 30304
+                "ten_hang": "Bạc Xỉu",
+                "so_luong": 3,
+                "don_gia": 35000,
+                "thanh_tien": 105000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 54248
+        "tong_tien_hoa_don": 105000
     },
     {
-        "invoice_id": "INV018",
-        "date_time": "2025-08-14 18:44:00",
-        "items": [
+        "id_hoa_don": "HD018",
+        "datetime": "2025-05-14 12:53:57",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 5206,
-                "amount": 15618
+                "ten_hang": "Cơm Tấm Sườn Bì Chả",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 4168,
-                "amount": 8337
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 6012,
-                "amount": 12025
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 2,
-                "price": 6346,
-                "amount": 12692
+                "ten_hang": "Phở Bò Tái",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             }
         ],
-        "total_amount": 48672
+        "tong_tien_hoa_don": 115000
     },
     {
-        "invoice_id": "INV019",
-        "date_time": "2025-08-22 00:09:00",
-        "items": [
+        "id_hoa_don": "HD019",
+        "datetime": "2025-05-15 19:57:26",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 8584,
-                "amount": 25754
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 6376,
-                "amount": 19129
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 2871,
-                "amount": 5743
+                "ten_hang": "Trà Sữa Matcha Đậu Đỏ",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 50626
+        "tong_tien_hoa_don": 55000
     },
     {
-        "invoice_id": "INV020",
-        "date_time": "2025-08-19 03:51:00",
-        "items": [
+        "id_hoa_don": "HD020",
+        "datetime": "2025-05-16 11:50:50",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 8996,
-                "amount": 26990
+                "ten_hang": "Cơm Sườn Nướng",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 9238,
-                "amount": 18476
+                "ten_hang": "Espresso",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 45466
+        "tong_tien_hoa_don": 90000
     },
     {
-        "invoice_id": "INV021",
-        "date_time": "2025-08-13 00:30:00",
-        "items": [
+        "id_hoa_don": "HD021",
+        "datetime": "2025-05-17 20:06:25",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 7437,
-                "amount": 7437
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 4853,
-                "amount": 9707
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 6354,
-                "amount": 19064
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 4699,
-                "amount": 14097
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 4546,
-                "amount": 9092
+                "ten_hang": "Trà Sữa Thái Xanh",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 59397
+        "tong_tien_hoa_don": 45000
     },
     {
-        "invoice_id": "INV022",
-        "date_time": "2025-08-24 23:10:00",
-        "items": [
+        "id_hoa_don": "HD022",
+        "datetime": "2025-05-23 08:50:59",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 3741,
-                "amount": 7483
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 3841,
-                "amount": 11523
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 3151,
-                "amount": 9454
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 3710,
-                "amount": 11130
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 3,
-                "price": 1101,
-                "amount": 3303
+                "ten_hang": "Bánh Mì Chả Cá",
+                "so_luong": 3,
+                "don_gia": 25000,
+                "thanh_tien": 75000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
             }
         ],
-        "total_amount": 42893
+        "tong_tien_hoa_don": 75000
     },
     {
-        "invoice_id": "INV023",
-        "date_time": "2025-09-01 21:54:00",
-        "items": [
+        "id_hoa_don": "HD023",
+        "datetime": "2025-05-25 12:16:09",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 9717,
-                "amount": 19435
+                "ten_hang": "Cơm Gà Rôti",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 10487,
-                "amount": 20974
+                "ten_hang": "Trà Gừng Mật Ong",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             }
         ],
-        "total_amount": 40409
+        "tong_tien_hoa_don": 90000
     },
     {
-        "invoice_id": "INV024",
-        "date_time": "2025-09-10 03:29:00",
-        "items": [
+        "id_hoa_don": "HD024",
+        "datetime": "2025-05-27 12:33:21",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 6243,
-                "amount": 18731
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 8524,
-                "amount": 8524
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 5425,
-                "amount": 16277
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 2,
-                "price": 5078,
-                "amount": 10157
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 3017,
-                "amount": 6034
+                "ten_hang": "Cơm Sườn Nướng",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
             }
         ],
-        "total_amount": 59723
+        "tong_tien_hoa_don": 55000
     },
     {
-        "invoice_id": "INV025",
-        "date_time": "2025-08-30 11:47:00",
-        "items": [
+        "id_hoa_don": "HD025",
+        "datetime": "2025-05-28 17:57:41",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 4084,
-                "amount": 12253
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 4899,
-                "amount": 14698
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 5059,
-                "amount": 15177
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 3725,
-                "amount": 3725
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 5310,
-                "amount": 10621
+                "ten_hang": "Trà Sữa Matcha Đậu Đỏ",
+                "so_luong": 2,
+                "don_gia": 55000,
+                "thanh_tien": 110000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 56474
+        "tong_tien_hoa_don": 110000
     },
     {
-        "invoice_id": "INV026",
-        "date_time": "2025-08-14 00:16:00",
-        "items": [
+        "id_hoa_don": "HD026",
+        "datetime": "2025-05-29 09:59:46",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 6823,
-                "amount": 20470
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 11857,
-                "amount": 11857
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 12074,
-                "amount": 12074
+                "ten_hang": "Phở Bò Gân",
+                "so_luong": 1,
+                "don_gia": 65000,
+                "thanh_tien": 65000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             }
         ],
-        "total_amount": 44401
+        "tong_tien_hoa_don": 65000
     },
     {
-        "invoice_id": "INV027",
-        "date_time": "2025-09-02 06:00:00",
-        "items": [
+        "id_hoa_don": "HD027",
+        "datetime": "2025-05-30 07:10:22",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 6205,
-                "amount": 18616
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 4317,
-                "amount": 12951
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 1832,
-                "amount": 5496
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 2,
-                "price": 3240,
-                "amount": 6481
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 3987,
-                "amount": 7974
+                "ten_hang": "Americano",
+                "so_luong": 2,
+                "don_gia": 40000,
+                "thanh_tien": 80000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 51518
+        "tong_tien_hoa_don": 80000
     },
     {
-        "invoice_id": "INV028",
-        "date_time": "2025-08-26 20:00:00",
-        "items": [
+        "id_hoa_don": "HD028",
+        "datetime": "2025-05-30 07:58:23",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 15728,
-                "amount": 15728
+                "ten_hang": "Bánh Mì Chả Cá",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 39764,
-                "amount": 39764
+                "ten_hang": "Cà Phê Trứng",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 55492
+        "tong_tien_hoa_don": 70000
     },
     {
-        "invoice_id": "INV029",
-        "date_time": "2025-09-10 04:05:00",
-        "items": [
+        "id_hoa_don": "HD029",
+        "datetime": "2025-05-31 09:16:15",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 5742,
-                "amount": 17228
+                "ten_hang": "Trà Gừng Mật Ong",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 3017,
-                "amount": 6034
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 2199,
-                "amount": 2199
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 5937,
-                "amount": 17813
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 1,
-                "price": 3080,
-                "amount": 3080
+                "ten_hang": "Espresso",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 46354
+        "tong_tien_hoa_don": 70000
     },
     {
-        "invoice_id": "INV030",
-        "date_time": "2025-08-23 15:45:00",
-        "items": [
+        "id_hoa_don": "HD030",
+        "datetime": "2025-06-01 07:24:27",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 2634,
-                "amount": 2634
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 4535,
-                "amount": 4535
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 6427,
-                "amount": 12854
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 7701,
-                "amount": 23105
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 5302,
-                "amount": 10605
+                "ten_hang": "Bánh Mì Pate",
+                "so_luong": 1,
+                "don_gia": 20000,
+                "thanh_tien": 20000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
             }
         ],
-        "total_amount": 53733
+        "tong_tien_hoa_don": 20000
     },
     {
-        "invoice_id": "INV031",
-        "date_time": "2025-08-11 18:15:00",
-        "items": [
+        "id_hoa_don": "HD031",
+        "datetime": "2025-06-01 15:07:53",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 9580,
-                "amount": 28742
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 8870,
-                "amount": 8870
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 9132,
-                "amount": 9132
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 11136,
-                "amount": 11136
+                "ten_hang": "Trà Sữa Socola",
+                "so_luong": 3,
+                "don_gia": 45000,
+                "thanh_tien": 135000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 57880
+        "tong_tien_hoa_don": 135000
     },
     {
-        "invoice_id": "INV032",
-        "date_time": "2025-09-06 05:34:00",
-        "items": [
+        "id_hoa_don": "HD032",
+        "datetime": "2025-06-01 16:28:02",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 5887,
-                "amount": 5887
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 7642,
-                "amount": 15285
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 12062,
-                "amount": 24125
+                "ten_hang": "Trà Oolong",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             }
         ],
-        "total_amount": 45297
+        "tong_tien_hoa_don": 35000
     },
     {
-        "invoice_id": "INV033",
-        "date_time": "2025-08-25 06:44:00",
-        "items": [
+        "id_hoa_don": "HD033",
+        "datetime": "2025-06-02 09:40:29",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 7393,
-                "amount": 7393
+                "ten_hang": "Phở Xào Bò",
+                "so_luong": 1,
+                "don_gia": 65000,
+                "thanh_tien": 65000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 2998,
-                "amount": 8996
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 7405,
-                "amount": 22217
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 2724,
-                "amount": 8174
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 2941,
-                "amount": 5883
+                "ten_hang": "Trà Vải",
+                "so_luong": 1,
+                "don_gia": 40000,
+                "thanh_tien": 40000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             }
         ],
-        "total_amount": 52663
+        "tong_tien_hoa_don": 105000
     },
     {
-        "invoice_id": "INV034",
-        "date_time": "2025-09-06 18:50:00",
-        "items": [
+        "id_hoa_don": "HD034",
+        "datetime": "2025-06-07 07:09:56",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 8478,
-                "amount": 25435
+                "ten_hang": "Trà Oolong",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 6324,
-                "amount": 12648
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 3165,
-                "amount": 9495
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 6934,
-                "amount": 6934
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 1,
-                "price": 4219,
-                "amount": 4219
+                "ten_hang": "Bánh Mì Thịt Nướng",
+                "so_luong": 1,
+                "don_gia": 30000,
+                "thanh_tien": 30000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
             }
         ],
-        "total_amount": 58731
+        "tong_tien_hoa_don": 65000
     },
     {
-        "invoice_id": "INV035",
-        "date_time": "2025-09-02 21:15:00",
-        "items": [
+        "id_hoa_don": "HD035",
+        "datetime": "2025-06-07 11:09:19",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 8511,
-                "amount": 17023
+                "ten_hang": "Trà Sữa Khoai Môn",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 7676,
-                "amount": 23028
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 5605,
-                "amount": 11210
+                "ten_hang": "Cơm Chiên Dương Châu",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
             }
         ],
-        "total_amount": 51261
+        "tong_tien_hoa_don": 105000
     },
     {
-        "invoice_id": "INV036",
-        "date_time": "2025-08-16 08:15:00",
-        "items": [
+        "id_hoa_don": "HD036",
+        "datetime": "2025-06-07 18:03:30",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 5348,
-                "amount": 5348
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 6364,
-                "amount": 19092
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 4160,
-                "amount": 12482
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 6216,
-                "amount": 6216
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 5168,
-                "amount": 10337
+                "ten_hang": "Trà Gừng Mật Ong",
+                "so_luong": 2,
+                "don_gia": 35000,
+                "thanh_tien": 70000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             }
         ],
-        "total_amount": 53475
+        "tong_tien_hoa_don": 70000
     },
     {
-        "invoice_id": "INV037",
-        "date_time": "2025-08-26 10:42:00",
-        "items": [
+        "id_hoa_don": "HD037",
+        "datetime": "2025-06-08 08:29:26",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 3978,
-                "amount": 3978
+                "ten_hang": "Phở Gà",
+                "so_luong": 2,
+                "don_gia": 50000,
+                "thanh_tien": 100000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 5328,
-                "amount": 15986
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 2759,
-                "amount": 5518
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 3562,
-                "amount": 10686
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 1,
-                "price": 6148,
-                "amount": 6148
+                "ten_hang": "Trà Chanh",
+                "so_luong": 2,
+                "don_gia": 20000,
+                "thanh_tien": 40000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             }
         ],
-        "total_amount": 42316
+        "tong_tien_hoa_don": 140000
     },
     {
-        "invoice_id": "INV038",
-        "date_time": "2025-09-05 10:26:00",
-        "items": [
+        "id_hoa_don": "HD038",
+        "datetime": "2025-06-08 08:36:33",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 6181,
-                "amount": 6181
+                "ten_hang": "Trà Hoa Cúc",
+                "so_luong": 2,
+                "don_gia": 35000,
+                "thanh_tien": 70000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 6718,
-                "amount": 20155
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 2473,
-                "amount": 7419
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 7390,
-                "amount": 7390
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 3,
-                "price": 3403,
-                "amount": 10211
+                "ten_hang": "Cà Phê Đen",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 51356
+        "tong_tien_hoa_don": 95000
     },
     {
-        "invoice_id": "INV039",
-        "date_time": "2025-08-16 21:43:00",
-        "items": [
+        "id_hoa_don": "HD039",
+        "datetime": "2025-06-09 09:04:14",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 5651,
-                "amount": 11302
+                "ten_hang": "Phở Bò Tái",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 5228,
-                "amount": 5228
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 3,
-                "price": 9553,
-                "amount": 28660
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 6719,
-                "amount": 6719
+                "ten_hang": "Cà Phê Đen",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 51909
+        "tong_tien_hoa_don": 80000
     },
     {
-        "invoice_id": "INV040",
-        "date_time": "2025-09-02 04:54:00",
-        "items": [
+        "id_hoa_don": "HD040",
+        "datetime": "2025-06-13 16:11:32",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 2550,
-                "amount": 7652
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 5219,
-                "amount": 15658
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 5081,
-                "amount": 10162
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 1,
-                "price": 7843,
-                "amount": 7843
+                "ten_hang": "Trà Sữa Khoai Môn",
+                "so_luong": 3,
+                "don_gia": 45000,
+                "thanh_tien": 135000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 41315
+        "tong_tien_hoa_don": 135000
     },
     {
-        "invoice_id": "INV041",
-        "date_time": "2025-08-24 10:38:00",
-        "items": [
+        "id_hoa_don": "HD041",
+        "datetime": "2025-06-14 07:30:13",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 12191,
-                "amount": 12191
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 17732,
-                "amount": 35464
+                "ten_hang": "Americano",
+                "so_luong": 1,
+                "don_gia": 40000,
+                "thanh_tien": 40000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 47655
+        "tong_tien_hoa_don": 40000
     },
     {
-        "invoice_id": "INV042",
-        "date_time": "2025-08-11 09:23:00",
-        "items": [
+        "id_hoa_don": "HD042",
+        "datetime": "2025-06-14 09:09:29",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 4229,
-                "amount": 12689
+                "ten_hang": "Phở Cuốn",
+                "so_luong": 3,
+                "don_gia": 45000,
+                "thanh_tien": 135000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 3926,
-                "amount": 3926
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 4001,
-                "amount": 4001
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 7744,
-                "amount": 23232
+                "ten_hang": "Americano",
+                "so_luong": 1,
+                "don_gia": 40000,
+                "thanh_tien": 40000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
             }
         ],
-        "total_amount": 43848
+        "tong_tien_hoa_don": 175000
     },
     {
-        "invoice_id": "INV043",
-        "date_time": "2025-08-12 20:02:00",
-        "items": [
+        "id_hoa_don": "HD043",
+        "datetime": "2025-06-14 09:42:20",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 7896,
-                "amount": 15793
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 4268,
-                "amount": 12806
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 4028,
-                "amount": 8057
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 2,
-                "price": 7297,
-                "amount": 14594
+                "ten_hang": "Phở Bò Gân",
+                "so_luong": 1,
+                "don_gia": 65000,
+                "thanh_tien": 65000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             }
         ],
-        "total_amount": 51250
+        "tong_tien_hoa_don": 65000
     },
     {
-        "invoice_id": "INV044",
-        "date_time": "2025-08-18 02:12:00",
-        "items": [
+        "id_hoa_don": "HD044",
+        "datetime": "2025-06-14 12:32:50",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 3534,
-                "amount": 10603
+                "ten_hang": "Cơm Gà Rôti",
+                "so_luong": 3,
+                "don_gia": 55000,
+                "thanh_tien": 165000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 5269,
-                "amount": 10538
+                "ten_hang": "Trà Gừng Mật Ong",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             },
             {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 4666,
-                "amount": 9333
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 4132,
-                "amount": 12396
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 6754,
-                "amount": 13509
+                "ten_hang": "Trà Chanh",
+                "so_luong": 2,
+                "don_gia": 20000,
+                "thanh_tien": 40000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             }
         ],
-        "total_amount": 56379
+        "tong_tien_hoa_don": 240000
     },
     {
-        "invoice_id": "INV045",
-        "date_time": "2025-08-29 13:07:00",
-        "items": [
+        "id_hoa_don": "HD045",
+        "datetime": "2025-06-19 07:23:48",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 17232,
-                "amount": 17232
+                "ten_hang": "Phở Bò Tái Nạm",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 12729,
-                "amount": 25459
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 10629,
-                "amount": 10629
+                "ten_hang": "Bánh Mì Chả Cá",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
             }
         ],
-        "total_amount": 53320
+        "tong_tien_hoa_don": 85000
     },
     {
-        "invoice_id": "INV046",
-        "date_time": "2025-08-28 06:43:00",
-        "items": [
+        "id_hoa_don": "HD046",
+        "datetime": "2025-06-21 21:06:19",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 6742,
-                "amount": 13484
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 1,
-                "price": 9729,
-                "amount": 9729
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 4154,
-                "amount": 4154
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 10347,
-                "amount": 31043
+                "ten_hang": "Trà Oolong",
+                "so_luong": 2,
+                "don_gia": 35000,
+                "thanh_tien": 70000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
             }
         ],
-        "total_amount": 58410
+        "tong_tien_hoa_don": 70000
     },
     {
-        "invoice_id": "INV047",
-        "date_time": "2025-08-17 18:55:00",
-        "items": [
+        "id_hoa_don": "HD047",
+        "datetime": "2025-06-22 09:19:42",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 11524,
-                "amount": 11524
+                "ten_hang": "Bánh Mì Pate",
+                "so_luong": 2,
+                "don_gia": 20000,
+                "thanh_tien": 40000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
             },
             {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 13328,
-                "amount": 39984
+                "ten_hang": "Trà Sữa Thái Xanh",
+                "so_luong": 2,
+                "don_gia": 45000,
+                "thanh_tien": 90000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 51508
+        "tong_tien_hoa_don": 130000
     },
     {
-        "invoice_id": "INV048",
-        "date_time": "2025-09-09 03:03:00",
-        "items": [
+        "id_hoa_don": "HD048",
+        "datetime": "2025-06-22 19:28:16",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 2,
-                "price": 2584,
-                "amount": 5169
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 5528,
-                "amount": 16584
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 9047,
-                "amount": 9047
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 2,
-                "price": 5139,
-                "amount": 10278
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 2,
-                "price": 4276,
-                "amount": 8552
+                "ten_hang": "Sữa Tươi Trân Châu Đường Đen",
+                "so_luong": 1,
+                "don_gia": 50000,
+                "thanh_tien": 50000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 49630
+        "tong_tien_hoa_don": 50000
     },
     {
-        "invoice_id": "INV049",
-        "date_time": "2025-09-07 11:32:00",
-        "items": [
+        "id_hoa_don": "HD049",
+        "datetime": "2025-06-23 07:12:46",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 3,
-                "price": 6035,
-                "amount": 18106
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 3,
-                "price": 3038,
-                "amount": 9116
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 1,
-                "price": 6367,
-                "amount": 6367
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 2,
-                "price": 5144,
-                "amount": 10288
+                "ten_hang": "Phở Bò Tái",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
             }
         ],
-        "total_amount": 43877
+        "tong_tien_hoa_don": 55000
     },
     {
-        "invoice_id": "INV050",
-        "date_time": "2025-08-11 11:59:00",
-        "items": [
+        "id_hoa_don": "HD050",
+        "datetime": "2025-06-23 17:37:16",
+        "chi_tiet": [
             {
-                "item_name": "Item 1",
-                "quantity": 1,
-                "price": 9317,
-                "amount": 9317
-            },
-            {
-                "item_name": "Item 2",
-                "quantity": 2,
-                "price": 3395,
-                "amount": 6790
-            },
-            {
-                "item_name": "Item 3",
-                "quantity": 2,
-                "price": 2722,
-                "amount": 5444
-            },
-            {
-                "item_name": "Item 4",
-                "quantity": 3,
-                "price": 7894,
-                "amount": 23683
-            },
-            {
-                "item_name": "Item 5",
-                "quantity": 1,
-                "price": 2670,
-                "amount": 2670
+                "ten_hang": "Trà Sữa Socola",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
             }
         ],
-        "total_amount": 47904
+        "tong_tien_hoa_don": 45000
+    },
+    {
+        "id_hoa_don": "HD051",
+        "datetime": "2025-06-24 08:23:10",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Gà",
+                "so_luong": 1,
+                "don_gia": 50000,
+                "thanh_tien": 50000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            }
+        ],
+        "tong_tien_hoa_don": 50000
+    },
+    {
+        "id_hoa_don": "HD052",
+        "datetime": "2025-06-25 09:25:20",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Gà Xé",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            },
+            {
+                "ten_hang": "Sữa Tươi Trân Châu Đường Đen",
+                "so_luong": 1,
+                "don_gia": 50000,
+                "thanh_tien": 50000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            }
+        ],
+        "tong_tien_hoa_don": 75000
+    },
+    {
+        "id_hoa_don": "HD053",
+        "datetime": "2025-06-26 12:07:39",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Gà Xối Mỡ",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            }
+        ],
+        "tong_tien_hoa_don": 55000
+    },
+    {
+        "id_hoa_don": "HD054",
+        "datetime": "2025-06-27 07:55:55",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Sữa Matcha Đậu Đỏ",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            },
+            {
+                "ten_hang": "Cà Phê Trứng",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 100000
+    },
+    {
+        "id_hoa_don": "HD055",
+        "datetime": "2025-06-28 09:24:20",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Đào Cam Sả",
+                "so_luong": 2,
+                "don_gia": 45000,
+                "thanh_tien": 90000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            },
+            {
+                "ten_hang": "Bánh Mì Pate",
+                "so_luong": 1,
+                "don_gia": 20000,
+                "thanh_tien": 20000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 110000
+    },
+    {
+        "id_hoa_don": "HD056",
+        "datetime": "2025-06-28 12:14:49",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Tấm Sườn Bì Chả",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            },
+            {
+                "ten_hang": "Bạc Xỉu",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 95000
+    },
+    {
+        "id_hoa_don": "HD057",
+        "datetime": "2025-06-28 12:25:05",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Gà Xối Mỡ",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            },
+            {
+                "ten_hang": "Trà Sữa Thái Xanh",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            }
+        ],
+        "tong_tien_hoa_don": 100000
+    },
+    {
+        "id_hoa_don": "HD058",
+        "datetime": "2025-07-01 08:25:08",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Heo Quay",
+                "so_luong": 2,
+                "don_gia": 35000,
+                "thanh_tien": 70000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 70000
+    },
+    {
+        "id_hoa_don": "HD059",
+        "datetime": "2025-07-01 09:26:48",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Heo Quay",
+                "so_luong": 3,
+                "don_gia": 35000,
+                "thanh_tien": 105000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 105000
+    },
+    {
+        "id_hoa_don": "HD060",
+        "datetime": "2025-07-03 09:26:04",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Thịt Nướng",
+                "so_luong": 1,
+                "don_gia": 30000,
+                "thanh_tien": 30000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 30000
+    },
+    {
+        "id_hoa_don": "HD061",
+        "datetime": "2025-07-05 08:06:47",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cà Phê Trứng",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 45000
+    },
+    {
+        "id_hoa_don": "HD062",
+        "datetime": "2025-07-05 09:00:33",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bạc Xỉu",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 35000
+    },
+    {
+        "id_hoa_don": "HD063",
+        "datetime": "2025-07-06 09:19:36",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Xào Bò",
+                "so_luong": 1,
+                "don_gia": 65000,
+                "thanh_tien": 65000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            }
+        ],
+        "tong_tien_hoa_don": 65000
+    },
+    {
+        "id_hoa_don": "HD064",
+        "datetime": "2025-07-10 09:24:42",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Gà",
+                "so_luong": 1,
+                "don_gia": 50000,
+                "thanh_tien": 50000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            },
+            {
+                "ten_hang": "Trà Sữa Thái Xanh",
+                "so_luong": 2,
+                "don_gia": 45000,
+                "thanh_tien": 90000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            }
+        ],
+        "tong_tien_hoa_don": 140000
+    },
+    {
+        "id_hoa_don": "HD065",
+        "datetime": "2025-07-11 21:30:58",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Sữa Khoai Môn",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            }
+        ],
+        "tong_tien_hoa_don": 45000
+    },
+    {
+        "id_hoa_don": "HD066",
+        "datetime": "2025-07-12 07:31:58",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cà Phê Sữa",
+                "so_luong": 2,
+                "don_gia": 30000,
+                "thanh_tien": 60000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            },
+            {
+                "ten_hang": "Bánh Mì Thịt Nướng",
+                "so_luong": 2,
+                "don_gia": 30000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 120000
+    },
+    {
+        "id_hoa_don": "HD067",
+        "datetime": "2025-07-14 11:10:44",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Chiên Dương Châu",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            }
+        ],
+        "tong_tien_hoa_don": 60000
+    },
+    {
+        "id_hoa_don": "HD068",
+        "datetime": "2025-07-16 09:10:01",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Bò Tái Nạm",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            },
+            {
+                "ten_hang": "Trà Vải",
+                "so_luong": 1,
+                "don_gia": 40000,
+                "thanh_tien": 40000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            }
+        ],
+        "tong_tien_hoa_don": 100000
+    },
+    {
+        "id_hoa_don": "HD069",
+        "datetime": "2025-07-17 07:33:52",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Chả Cá",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 25000
+    },
+    {
+        "id_hoa_don": "HD070",
+        "datetime": "2025-07-17 08:05:57",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Heo Quay",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 35000
+    },
+    {
+        "id_hoa_don": "HD071",
+        "datetime": "2025-07-19 08:33:52",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Gà Xé",
+                "so_luong": 2,
+                "don_gia": 25000,
+                "thanh_tien": 50000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 50000
+    },
+    {
+        "id_hoa_don": "HD072",
+        "datetime": "2025-07-20 07:26:53",
+        "chi_tiet": [
+            {
+                "ten_hang": "Espresso",
+                "so_luong": 2,
+                "don_gia": 35000,
+                "thanh_tien": 70000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 70000
+    },
+    {
+        "id_hoa_don": "HD073",
+        "datetime": "2025-07-20 07:31:23",
+        "chi_tiet": [
+            {
+                "ten_hang": "Americano",
+                "so_luong": 1,
+                "don_gia": 40000,
+                "thanh_tien": 40000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            },
+            {
+                "ten_hang": "Trà Vải",
+                "so_luong": 2,
+                "don_gia": 40000,
+                "thanh_tien": 80000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            }
+        ],
+        "tong_tien_hoa_don": 120000
+    },
+    {
+        "id_hoa_don": "HD074",
+        "datetime": "2025-07-20 07:33:08",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Thịt Nướng",
+                "so_luong": 1,
+                "don_gia": 30000,
+                "thanh_tien": 30000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 30000
+    },
+    {
+        "id_hoa_don": "HD075",
+        "datetime": "2025-07-20 12:40:54",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Tấm Sườn Bì Chả",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            }
+        ],
+        "tong_tien_hoa_don": 60000
+    },
+    {
+        "id_hoa_don": "HD076",
+        "datetime": "2025-07-23 09:22:28",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Bò Tái Nạm",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            }
+        ],
+        "tong_tien_hoa_don": 60000
+    },
+    {
+        "id_hoa_don": "HD077",
+        "datetime": "2025-07-27 12:05:43",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Sườn Nướng",
+                "so_luong": 2,
+                "don_gia": 55000,
+                "thanh_tien": 110000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            }
+        ],
+        "tong_tien_hoa_don": 110000
+    },
+    {
+        "id_hoa_don": "HD078",
+        "datetime": "2025-07-27 20:39:29",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Vải",
+                "so_luong": 1,
+                "don_gia": 40000,
+                "thanh_tien": 40000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            }
+        ],
+        "tong_tien_hoa_don": 40000
+    },
+    {
+        "id_hoa_don": "HD079",
+        "datetime": "2025-08-01 07:43:42",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Bò Tái",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            },
+            {
+                "ten_hang": "Cà Phê Đen",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            },
+            {
+                "ten_hang": "Trà Hoa Cúc",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            }
+        ],
+        "tong_tien_hoa_don": 115000
+    },
+    {
+        "id_hoa_don": "HD080",
+        "datetime": "2025-08-01 11:44:38",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Chiên Dương Châu",
+                "so_luong": 1,
+                "don_gia": 60000,
+                "thanh_tien": 60000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            },
+            {
+                "ten_hang": "Trà Oolong",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            }
+        ],
+        "tong_tien_hoa_don": 95000
+    },
+    {
+        "id_hoa_don": "HD081",
+        "datetime": "2025-08-02 08:38:24",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Ốp La",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            },
+            {
+                "ten_hang": "Cà Phê Sữa",
+                "so_luong": 1,
+                "don_gia": 30000,
+                "thanh_tien": 30000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 55000
+    },
+    {
+        "id_hoa_don": "HD082",
+        "datetime": "2025-08-03 09:55:29",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Bò Tái",
+                "so_luong": 2,
+                "don_gia": 55000,
+                "thanh_tien": 110000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            }
+        ],
+        "tong_tien_hoa_don": 110000
+    },
+    {
+        "id_hoa_don": "HD083",
+        "datetime": "2025-08-03 12:31:11",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Đào Cam Sả",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            },
+            {
+                "ten_hang": "Cơm Gà Xối Mỡ",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            }
+        ],
+        "tong_tien_hoa_don": 100000
+    },
+    {
+        "id_hoa_don": "HD084",
+        "datetime": "2025-08-03 13:33:07",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Gà Rôti",
+                "so_luong": 2,
+                "don_gia": 55000,
+                "thanh_tien": 110000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            }
+        ],
+        "tong_tien_hoa_don": 110000
+    },
+    {
+        "id_hoa_don": "HD085",
+        "datetime": "2025-08-03 16:56:16",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Chanh",
+                "so_luong": 3,
+                "don_gia": 20000,
+                "thanh_tien": 60000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            }
+        ],
+        "tong_tien_hoa_don": 60000
+    },
+    {
+        "id_hoa_don": "HD086",
+        "datetime": "2025-08-05 11:32:32",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Tấm Sườn Bì Chả",
+                "so_luong": 2,
+                "don_gia": 60000,
+                "thanh_tien": 120000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            },
+            {
+                "ten_hang": "Trà Chanh",
+                "so_luong": 3,
+                "don_gia": 20000,
+                "thanh_tien": 60000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            }
+        ],
+        "tong_tien_hoa_don": 180000
+    },
+    {
+        "id_hoa_don": "HD087",
+        "datetime": "2025-08-08 07:55:28",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cà Phê Đen",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 25000
+    },
+    {
+        "id_hoa_don": "HD088",
+        "datetime": "2025-08-08 09:26:48",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Gà",
+                "so_luong": 1,
+                "don_gia": 50000,
+                "thanh_tien": 50000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            }
+        ],
+        "tong_tien_hoa_don": 50000
+    },
+    {
+        "id_hoa_don": "HD089",
+        "datetime": "2025-08-09 07:29:49",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bạc Xỉu",
+                "so_luong": 2,
+                "don_gia": 35000,
+                "thanh_tien": 70000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 70000
+    },
+    {
+        "id_hoa_don": "HD090",
+        "datetime": "2025-08-09 08:32:17",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Sữa Socola",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            },
+            {
+                "ten_hang": "Trà Hoa Cúc",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            },
+            {
+                "ten_hang": "Phở Bò Gân",
+                "so_luong": 1,
+                "don_gia": 65000,
+                "thanh_tien": 65000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            }
+        ],
+        "tong_tien_hoa_don": 145000
+    },
+    {
+        "id_hoa_don": "HD091",
+        "datetime": "2025-08-09 09:26:43",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Xào Bò",
+                "so_luong": 2,
+                "don_gia": 65000,
+                "thanh_tien": 130000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            }
+        ],
+        "tong_tien_hoa_don": 130000
+    },
+    {
+        "id_hoa_don": "HD092",
+        "datetime": "2025-08-13 07:19:56",
+        "chi_tiet": [
+            {
+                "ten_hang": "Bánh Mì Ốp La",
+                "so_luong": 2,
+                "don_gia": 25000,
+                "thanh_tien": 50000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 50000
+    },
+    {
+        "id_hoa_don": "HD093",
+        "datetime": "2025-08-14 16:36:26",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Sữa Matcha Đậu Đỏ",
+                "so_luong": 2,
+                "don_gia": 55000,
+                "thanh_tien": 110000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            }
+        ],
+        "tong_tien_hoa_don": 110000
+    },
+    {
+        "id_hoa_don": "HD094",
+        "datetime": "2025-08-15 09:57:15",
+        "chi_tiet": [
+            {
+                "ten_hang": "Phở Cuốn",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            },
+            {
+                "ten_hang": "Bánh Mì Pate",
+                "so_luong": 2,
+                "don_gia": 20000,
+                "thanh_tien": 40000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 85000
+    },
+    {
+        "id_hoa_don": "HD095",
+        "datetime": "2025-08-15 13:34:48",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cơm Gà Xối Mỡ",
+                "so_luong": 1,
+                "don_gia": 55000,
+                "thanh_tien": 55000,
+                "nhom": "Thức ăn",
+                "loai": "Cơm"
+            },
+            {
+                "ten_hang": "Cà Phê Đen",
+                "so_luong": 1,
+                "don_gia": 25000,
+                "thanh_tien": 25000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 80000
+    },
+    {
+        "id_hoa_don": "HD096",
+        "datetime": "2025-08-16 08:28:53",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cà Phê Sữa",
+                "so_luong": 1,
+                "don_gia": 30000,
+                "thanh_tien": 30000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            },
+            {
+                "ten_hang": "Trà Đào Cam Sả",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Nước uống",
+                "loai": "Trà"
+            }
+        ],
+        "tong_tien_hoa_don": 75000
+    },
+    {
+        "id_hoa_don": "HD097",
+        "datetime": "2025-08-17 08:31:15",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Sữa Trân Châu Đường Đen",
+                "so_luong": 2,
+                "don_gia": 50000,
+                "thanh_tien": 100000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            },
+            {
+                "ten_hang": "Bánh Mì Heo Quay",
+                "so_luong": 1,
+                "don_gia": 35000,
+                "thanh_tien": 35000,
+                "nhom": "Thức ăn",
+                "loai": "Bánh mì"
+            }
+        ],
+        "tong_tien_hoa_don": 135000
+    },
+    {
+        "id_hoa_don": "HD098",
+        "datetime": "2025-08-17 18:45:26",
+        "chi_tiet": [
+            {
+                "ten_hang": "Trà Sữa Khoai Môn",
+                "so_luong": 2,
+                "don_gia": 45000,
+                "thanh_tien": 90000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            }
+        ],
+        "tong_tien_hoa_don": 90000
+    },
+    {
+        "id_hoa_don": "HD099",
+        "datetime": "2025-08-21 07:21:52",
+        "chi_tiet": [
+            {
+                "ten_hang": "Cà Phê Sữa",
+                "so_luong": 1,
+                "don_gia": 30000,
+                "thanh_tien": 30000,
+                "nhom": "Nước uống",
+                "loai": "Cà phê"
+            }
+        ],
+        "tong_tien_hoa_don": 30000
+    },
+    {
+        "id_hoa_don": "HD100",
+        "datetime": "2025-08-21 07:41:58",
+        "chi_tiet": [
+            {
+                "ten_hang": "Sữa Tươi Trân Châu Đường Đen",
+                "so_luong": 1,
+                "don_gia": 50000,
+                "thanh_tien": 50000,
+                "nhom": "Nước uống",
+                "loai": "Trà sữa"
+            },
+            {
+                "ten_hang": "Phở Cuốn",
+                "so_luong": 1,
+                "don_gia": 45000,
+                "thanh_tien": 45000,
+                "nhom": "Thức ăn",
+                "loai": "Phở"
+            }
+        ],
+        "tong_tien_hoa_don": 95000
     }
 ]
