@@ -1,73 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Uni Pro Admin - Product Analysis</title>
-	<script src="https://cdn.tailwindcss.com"></script>
-	<link rel="stylesheet" href="static/global.css">
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<link
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-		rel="stylesheet"
-	>
-	<style>
-		.sidebar-item { transition: all 0.3s ease; }
-		.sidebar-item:hover { background-color: #f9fafb; color: #3b82f6; }
-		.sidebar-item a.active { color: #3b82f6; background-color: #eff6ff; border-left: 3px solid #3b82f6; padding-left: calc(1rem - 3px); }
-		.sidebar-item a.active .font-medium { font-weight: 600; }
-        .chart-container { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uni Pro Admin - Product Analysis</title>
+    
+    <!-- External CSS and JS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/global.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        .sidebar-item { 
+            transition: all 0.3s ease; 
+        }
+        
+        .sidebar-item:hover { 
+            background-color: #f9fafb; 
+            color: #3b82f6; 
+        }
+        
+        .sidebar-item a.active { 
+            color: #3b82f6; 
+            background-color: #eff6ff; 
+            border-left: 3px solid #3b82f6; 
+            padding-left: calc(1rem - 3px); 
+        }
+        
+        .sidebar-item a.active .font-medium { 
+            font-weight: 600; 
+        }
+        
+        .chart-container { 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .chart-container > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body class="bg-gray-50 font-sans">
-	<div class="flex h-[100dvh] overflow-hidden">
-		{{ sidebar|safe }}
+    <div class="flex h-[100dvh] overflow-hidden">
+        <!-- Sidebar -->
+        {{ sidebar|safe }}
 
-		<div class="flex-1 flex flex-col overflow-hidden">
-			<header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
-				<h1 class="text-2xl font-semibold text-gray-800">Product Performance</h1>
-			</header>
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+                <h1 class="text-2xl font-semibold text-gray-800">Product Performance</h1>
+            </header>
 
-			<main class="flex-1 overflow-y-auto p-6">
+            <!-- Main Content Area -->
+            <main class="flex-1 overflow-y-auto p-6">
                 <div id="product-charts-container" class="space-y-8">
                     <div class="chart-container p-6">
-                        <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">Doanh thu theo Nhóm sản phẩm</h2>
-                        <div id="nhom-chart" class="w-full h-96"></div>
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">
+                            Doanh thu theo Nhóm sản phẩm
+                        </h2>
+                        <div id="nhom-chart" class="w-full h-96 flex justify-center items-center"></div>
                     </div>
-                    </div>
-			</main>
-		</div>
-	</div>
+                </div>
+            </main>
+        </div>
+    </div>
 
-	<script>
+    <!-- JavaScript -->
+    <script>
+        // Initialize Google Charts
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(initializeCharts);
 
+        // Main function to initialize charts
         function initializeCharts() {
             fetch('/api/product-hierarchy')
                 .then(response => response.json())
                 .then(data => {
                     if (data.error || Object.keys(data).length === 0) {
-                        document.getElementById('product-charts-container').innerHTML = `<p class="text-center text-red-500">Không có dữ liệu để hiển thị.</p>`;
+                        document.getElementById('product-charts-container').innerHTML = 
+                            `<p class="text-center text-red-500">Không có dữ liệu để hiển thị.</p>`;
                         return;
                     }
                     createHierarchyCharts(data);
                 })
                 .catch(error => {
                     console.error('Error fetching product hierarchy data:', error);
-                    document.getElementById('product-charts-container').innerHTML = `<p class="text-center text-red-500">Tải dữ liệu thất bại.</p>`;
+                    document.getElementById('product-charts-container').innerHTML = 
+                        `<p class="text-center text-red-500">Tải dữ liệu thất bại.</p>`;
                 });
         }
 
+        // Create hierarchy charts structure
         function createHierarchyCharts(data) {
             const mainContainer = document.getElementById('product-charts-container');
+            
+            // Clear existing content first
+            mainContainer.innerHTML = '';
 
             // --- Level 1: "Nhóm" Chart ---
             const nhomData = [['Nhóm', 'Doanh thu']];
             for (const nhomName in data) {
                 nhomData.push([nhomName, data[nhomName].total_revenue]);
             }
-            drawPieChart('nhom-chart', nhomData, { pieHole: 0.4, title: 'Doanh thu theo Nhóm sản phẩm' });
+            
+            // Create and append the first chart container
+            const firstChartContainer = document.createElement('div');
+            firstChartContainer.className = 'chart-container p-6';
+            firstChartContainer.innerHTML = `
+                <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">
+                    Doanh thu theo Nhóm sản phẩm
+                </h2>
+                <div id="nhom-chart" class="w-full h-96 flex justify-center items-center"></div>
+            `;
+            mainContainer.appendChild(firstChartContainer);
             
             // --- Level 2 & 3: "Loại" and "Top 5 Products" Charts ---
             let chartIdCounter = 0;
@@ -85,14 +143,13 @@
                 const loaiChartId = `loai-chart-${chartIdCounter++}`;
                 const loaiChartDiv = document.createElement('div');
                 loaiChartDiv.id = loaiChartId;
-                loaiChartDiv.className = 'w-full h-96';
+                loaiChartDiv.className = 'w-full h-96 flex justify-center items-center';
                 
                 const loaiData = [['Loại', 'Doanh thu']];
                 for (const loaiName in nhom.categories) {
                     loaiData.push([loaiName, nhom.categories[loaiName].total_revenue]);
                 }
                 nhomContainer.appendChild(loaiChartDiv);
-                drawPieChart(loaiChartId, loaiData, { title: `Doanh thu theo Loại trong nhóm ${nhomName}` });
 
                 // Level 3 Charts
                 for (const loaiName in nhom.categories) {
@@ -109,52 +166,146 @@
                         const top5ChartId = `top5-chart-${chartIdCounter++}`;
                         const top5ChartDiv = document.createElement('div');
                         top5ChartDiv.id = top5ChartId;
-                        top5ChartDiv.className = 'w-full h-64';
+                        top5ChartDiv.className = 'w-full h-64 flex justify-center items-center';
                         
                         const top5Data = [['Sản phẩm', 'Doanh thu']];
                         // Sort products by revenue before pushing
-                        const sortedProducts = Object.entries(loai.top_products).sort((a,b) => b[1] - a[1]);
+                        const sortedProducts = Object.entries(loai.top_products)
+                            .sort((a, b) => b[1] - a[1]);
                         sortedProducts.forEach(product => top5Data.push(product));
 
                         loaiContainer.appendChild(top5ChartDiv);
                         nhomContainer.appendChild(loaiContainer);
-                        drawBarChart(top5ChartId, top5Data, { title: `Top 5 sản phẩm - ${loaiName}` });
                     }
                 }
+                
+                // Append the nhom container to main container
                 mainContainer.appendChild(nhomContainer);
+            }
+            
+            // Draw all charts after DOM elements are created and appended
+            setTimeout(() => {
+                drawAllCharts(data);
+            }, 200);
+        }
+
+        // Draw all charts function
+        function drawAllCharts(data) {
+            // Draw the first chart
+            const nhomData = [['Nhóm', 'Doanh thu']];
+            for (const nhomName in data) {
+                nhomData.push([nhomName, data[nhomName].total_revenue]);
+            }
+            
+            try {
+                drawPieChart('nhom-chart', nhomData, { pieHole: 0.4 });
+            } catch (error) {
+                console.error('Error drawing nhom chart:', error);
+            }
+            
+            let chartIdCounter = 0;
+            
+            for (const nhomName in data) {
+                const nhom = data[nhomName];
+                
+                // Level 2 Chart
+                const loaiChartId = `loai-chart-${chartIdCounter++}`;
+                const loaiData = [['Loại', 'Doanh thu']];
+                for (const loaiName in nhom.categories) {
+                    loaiData.push([loaiName, nhom.categories[loaiName].total_revenue]);
+                }
+                
+                try {
+                    drawPieChart(loaiChartId, loaiData);
+                } catch (error) {
+                    console.error(`Error drawing chart ${loaiChartId}:`, error);
+                }
+
+                // Level 3 Charts
+                for (const loaiName in nhom.categories) {
+                    const loai = nhom.categories[loaiName];
+                    if (Object.keys(loai.top_products).length > 0) {
+                        const top5ChartId = `top5-chart-${chartIdCounter++}`;
+                        const top5Data = [['Sản phẩm', 'Doanh thu']];
+                        const sortedProducts = Object.entries(loai.top_products)
+                            .sort((a, b) => b[1] - a[1]);
+                        sortedProducts.forEach(product => top5Data.push(product));
+
+                        try {
+                            drawBarChart(top5ChartId, top5Data);
+                        } catch (error) {
+                            console.error(`Error drawing chart ${top5ChartId}:`, error);
+                        }
+                    }
+                }
             }
         }
 
         // --- Chart Drawing Helper Functions ---
         const pieChartOptions = {
             backgroundColor: 'transparent',
-            chartArea: { left: 10, top: 40, width: '90%', height: '80%' },
-            legend: { position: 'right', textStyle: { color: '#6b7280', fontSize: 12 } }
+            chartArea: { left: '25%', width: '100%', height: '100%' },
+            legend: { 
+                position: 'right', 
+                textStyle: { color: '#6b7280', fontSize: 16 } 
+            }
         };
 
         const barChartOptions = {
             backgroundColor: 'transparent',
             legend: 'none',
             bar: { groupWidth: '80%' },
-            hAxis: { textStyle: { color: '#6b7280', fontSize: 12 }, format: 'short', gridlines: { color: '#f3f4f6' } },
-            vAxis: { textStyle: { color: '#6b7280', fontSize: 12 } },
-            chartArea: { left: 150, top: 40, width: '70%', height: '75%' }
+            hAxis: { 
+                textStyle: { color: '#6b7280', fontSize: 12 }, 
+                format: 'short', 
+                gridlines: { color: '#f3f4f6' } 
+            },
+            vAxis: { 
+                textStyle: { color: '#6b7280', fontSize: 12 } 
+            },
+            chartArea: { 
+                left: 150, 
+                top: 40, 
+                width: '70%', 
+                height: '75%' 
+            }
         };
 
+        // Draw pie chart function
         function drawPieChart(elementId, dataArray, options) {
-            const data = google.visualization.arrayToDataTable(dataArray);
-            const chart = new google.visualization.PieChart(document.getElementById(elementId));
-            chart.draw(data, {...pieChartOptions, ...options});
+            try {
+                const element = document.getElementById(elementId);
+                if (!element) {
+                    console.error(`Element with id '${elementId}' not found`);
+                    return;
+                }
+                const data = google.visualization.arrayToDataTable(dataArray);
+                const chart = new google.visualization.PieChart(element);
+                chart.draw(data, {...pieChartOptions, ...options});
+            } catch (error) {
+                console.error(`Error drawing pie chart ${elementId}:`, error);
+            }
         }
 
+        // Draw bar chart function
         function drawBarChart(elementId, dataArray, options) {
-            const data = google.visualization.arrayToDataTable(dataArray);
-            // Use BarChart for horizontal bars, which is better for long labels
-            const chart = new google.visualization.BarChart(document.getElementById(elementId));
-            chart.draw(data, {...barChartOptions, ...options});
+            try {
+                const element = document.getElementById(elementId);
+                if (!element) {
+                    console.error(`Element with id '${elementId}' not found`);
+                    return;
+                }
+                const data = google.visualization.arrayToDataTable(dataArray);
+                // Use BarChart for horizontal bars, which is better for long labels
+                const chart = new google.visualization.BarChart(element);
+                chart.draw(data, {...barChartOptions, ...options});
+            } catch (error) {
+                console.error(`Error drawing bar chart ${elementId}:`, error);
+            }
         }
 
+        // Handle window resize
         window.addEventListener('resize', initializeCharts);
-	</script>
+    </script>
 </body>
 </html>
